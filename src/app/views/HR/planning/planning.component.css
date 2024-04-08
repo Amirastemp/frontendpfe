@@ -1,0 +1,72 @@
+/* .calendar{
+  width: 50%;
+  height: 400px;
+} */
+.demo-app-calendar {
+  width: 100%; /* Ajustez la largeur selon vos besoins */
+}
+.calendar-navigation {
+  display: flex; /* Utiliser flexbox */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+}
+
+.calendar-navigation i {
+  cursor: pointer; /* Changer le curseur en pointeur au survol */
+  margin: 0 10px; /* Ajouter de la marge autour des icônes */
+}
+
+.calendar-navigation h2 {
+  margin: 0; /* Supprimer la marge par défaut du titre */
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse; /* Fusionner les bordures de la table */
+}
+
+.calendar-table th, .calendar-table td {
+  padding: 10px; /* Ajustez la taille de la cellule selon vos besoins */
+  border: 1px solid #ccc; /* Bordure de chaque cellule */
+}
+
+.calendar-table th {
+  background-color: #f0f0f0; /* Couleur de fond pour les en-têtes de jour */
+}
+
+.calendar-table .other-month {
+  background-color: #f9f9f9; /* Couleur de fond pour les jours du mois précédent ou suivant */
+}
+/* Définissez le style pour les jours inclus dans un événement */
+.in-event {
+  background-color: #ffcccb; /* Choisissez la couleur de fond que vous souhaitez */
+  color: #000; /* Couleur du texte */
+}
+.leave-day {
+  background-color: #393939; /* Couleur de fond pour les jours de congé */
+  color: #000; /* Couleur du texte */
+  /* font-weight: bold; Police en gras */
+}
+
+.sick-leave {
+  background-color: pink;
+}
+
+.vacation {
+  background-color: yellow;
+}
+.spacer {
+  width: 20px; /* Adjust the width as needed */
+  background-color: #f0f0f0;
+}
+
+.day-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.day-column {
+  display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+}
+

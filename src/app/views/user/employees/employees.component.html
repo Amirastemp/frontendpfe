@@ -1,0 +1,15 @@
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let user of users">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">{{user.firstName}}</h5>
+        <h5 class="card-title">{{user.lastName}}</h5>
+        <p class="card-text">{{user.role}}</p>
+        <a routerLink="/user"  class="btn btn-primary">more details </a>
+      </div>
+      <div class="card-footer text-muted">
+       {{user.phone}}
+      </div>
+    </div>
+  </div>
+</div>

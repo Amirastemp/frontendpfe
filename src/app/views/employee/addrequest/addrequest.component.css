@@ -1,0 +1,6 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.btn-coral {
+  background-color: coral;
+  color: white; /* Pour s'assurer que le texte est visible sur le bouton */
+}

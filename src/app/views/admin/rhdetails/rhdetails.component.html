@@ -1,0 +1,37 @@
+<div class="container">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ dataObject.userName }}</strong> 
+    </h3>
+  </header>
+  <p>
+    <strong>Name:</strong>
+    {{ dataObject.firstName }}
+{{dataObject.lastName}}  
+</p>
+  <strong>Email:</strong>
+  <ul>
+    <li>
+      {{ dataObject.email }}
+    </li>
+  </ul>
+  <strong>phone:</strong>
+  <ul>
+    <li>
+      {{ dataObject.phone}}
+    </li>
+  </ul>
+  <strong>Address:</strong>
+  <ul>
+    <li>
+      {{ dataObject.address }}
+    </li>
+  </ul>
+  <strong>Roles:</strong>
+  <ul>
+    <li>
+      {{ dataObject.role }}
+    </li>
+  </ul>
+</div>
+

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow">
+      <div class="card-header">
+        <h3 class="mb-0 text-center "> Update Request</h3>
+      </div>
+      <div class="card-body">
+        <form class="form"   *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && updateNewRequest(f)"
+        #f="ngForm"
+        novalidate>
+        <div class="form-group">
+          <label for="startDate">startDate</label>
+          <input
+            type="date"
+            class="form-control"
+            name="startDate"
+            [(ngModel)]="requestData.startDate"
+
+            minlength="3"
+            maxlength="20"
+            #startDate="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && startDate.errors }"
+          />
+          <div class="invalid-feedback" *ngIf="startDate.errors && f.submitted">
+            <div *ngIf="startDate.errors['required']">startDate is required</div>
+            <div *ngIf="startDate.errors['minlength']">
+              startDate must be au format jj-mm-aaaa
+            </div>
+          </div>
+        </div>
+          <div class="form-group">
+            <label for="endDate">endDate</label>
+            <input
+              type="date"
+              class="form-control"
+              name="endDate"
+              [(ngModel)]="requestData.endDate"
+
+              minlength="3"
+              maxlength="20"
+              #endDate="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && endDate.errors }"
+            />
+            <div class="invalid-feedback" *ngIf="endDate.errors && f.submitted">
+              <!-- <div *ngIf="endDate.errors['required']">endDate is required</div> -->
+              <div *ngIf="endDate.errors['minlength']">
+                endDate must be au format jj-mm-aaaa
+              </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cause">cause</label>
+            <input
+              type="text"
+              class="form-control"
+              name="cause"
+              [(ngModel)]="requestData.cause"
+
+              minlength="3"
+              maxlength="20"
+              #cause="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && cause.errors }"
+            />
+            <div class="invalid-feedback" *ngIf="cause.errors && f.submitted">
+              <div *ngIf="cause.errors['required']">cause is required</div>
+              <div *ngIf="cause.errors['minlength']">
+                cause must be at least 3 characters
+              </div>
+              <div *ngIf="cause.errors['maxlength']">
+                cause must be at most 20 characters
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="form-group">
+        <button (click)="updateNewRequest(f)" type="submit" class="btn btn-coral float-right form-control">ADD_Request</button>
+        </div>
+        <br/>
+        </form>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          update request is successfully done!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

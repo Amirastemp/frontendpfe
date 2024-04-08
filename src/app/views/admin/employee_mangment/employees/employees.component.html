@@ -1,0 +1,62 @@
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">All of Employees </h6>
+      </div>
+
+      <div class="card-body">
+        <a [routerLink]="userRole === 'admin' ? '/admin/addemployee' : '/rh/addemployee'"
+           style="float: right; margin-left: 12px;"
+           class="btn btn-primary">Add employee</a>
+        <div class="table-responsive" style="margin-left: 5px;">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Adresse</th>
+                    <th>Activate</th>
+                    <th style="background: linear-gradient(-45deg, transparent 50%, rgba(98, 97, 97, 0.975) 50%);"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of pagedData ">
+                    <td>{{ item.firstName }} {{ item.lastName }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>{{ item.address }}</td>
+                    <td>{{ item.active }}</td>
+                    <td>
+                      <i class="fas fa-edit text-success mr-4 cursor-pointer" style="margin-right: 5px;" data-toggle="modal" (click)="goto(item)" data-target="#exampleModal"></i>
+                      <i class="fas fa-info-circle text-info mr-4 cursor-pointer" (click)="details(item)"></i>
+                      <i class="fas fa-trash-alt text-danger cursor-pointer" style="margin-left: 5px;" (click)="deleteEmployee(item)"></i>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+          <button class="btn btn-flat " [disabled]="currentPage === 1" (click)="prevPage()">
+              <i class="bi bi-arrow-left"></i>
+          </button>
+          <span>Page {{ currentPage }} of {{ totalPages }}</span>
+          <button class="btn btn-flat " [disabled]="currentPage === totalPages" (click)="nextPage()">
+              <i class="bi bi-arrow-right"></i>
+
+              <i class="fas fa-arrow-right"></i>
+          </button>
+      </div>
+
+
+
+       </div>
+      </div>
+  </div>
+
+</div>

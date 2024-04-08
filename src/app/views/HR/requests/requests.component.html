@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-2 font-weight-bold">Requests </h6>
+      </div>
+
+      <div class="card-body">
+        <div class="table-responsive" style="margin-left: 5px;">
+          <table class="table circular-border-table" width="100%" id="dataTable" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Cause</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of datareq">
+                <tr>
+                  <td colspan="5" class="text-center">{{ item.employee.firstName }} {{ item.employee.lastName }}</td>
+                </tr>
+
+                <tr>
+                  <td>{{ item.startDate }}</td>
+                  <td>{{ item.endDate }}</td>
+                  <td>{{ item.cause }}</td>
+
+
+                  <td>
+                    <i class="fas fa-times fa-fw text-danger mr-4 cursor-pointer" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }" (click)="rejected(item)"></i>
+                    <i class="fas fa-check fa-fw text-success cursor-pointer" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }" (click)="approved(item)"></i>
+                  </td>
+
+
+
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+
+

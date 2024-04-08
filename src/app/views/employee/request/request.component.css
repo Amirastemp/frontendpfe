@@ -1,0 +1,40 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.bnt-coral {
+  background-color: coral;
+    color:white/* Pour s'assurer que le texte est visible sur le bouton */
+ }
+.text-coral {
+ color: coral;
+   /* Pour s'assurer que le texte est visible sur le bouton */
+}
+
+.text-success {
+ color: rgb(154, 225, 209);
+  /* Pour s'assurer que le texte est visible sur le bouton */
+}
+
+.yellow-icon {
+  color: yellow;
+}
+.green-icon {
+  color: green;
+}
+.red-icon {
+  color: red;
+}
+.circular-border-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 20px; /* Ajustez la valeur selon vos préférences */
+}
+
+.circular-border-table th,
+.circular-border-table td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.disabled-icon {
+  opacity: 0.5; /* Réduire l'opacité pour simuler un état désactivé */
+  pointer-events: none; /* Désactiver les événements de clic */
+}

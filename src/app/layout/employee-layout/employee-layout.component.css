@@ -1,0 +1,107 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+
+#sidebar {
+  width: 264px; /* Adjust as needed */
+  background: coral;
+  transition: all 0.35s ease-in-out;
+  overflow-y: auto; /* Allow sidebar to scroll if content exceeds height */
+}
+.sidebar-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  background: white;
+  width: 100%; /* Ensure navbar takes full width */
+  max-height: 100vh; /* Limit maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.container {
+  flex: 1; /* Fill remaining space */
+  overflow-y: auto; /* Allow container to scroll if content exceeds height */
+  padding: 20px; /* Example padding */
+  /* Add any other styles you need to modify the size of the container */
+}
+
+/* Sidebar Elements Style */
+.sidebar-logo {
+  padding: 1.15rem;
+  text-decoration: none; /* Remove underline */
+  color: inherit;
+}
+.sidebar-logo a {
+  color: #e9ecef;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+a.sidebar-link {
+  padding: .625rem 1.625rem;
+  color: #e9ecef;
+  position: relative;
+  display: block;
+  font-size: 0.875rem;
+}
+.btn-coral {
+  background-color: coral;
+  color: white; /* Pour s'assurer que le texte est visible sur le bouton */
+}
+.sidebar-link[data-bs-toggle="collapse"]::after {
+  content: "\eefc"; /* Unicode character for Bootstrap's "chevron-up" icon */
+  font-family: "bootstrap-icons"; /* Specify the font family for the icon */
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  transform: rotate(-90deg); /* Rotate the icon to point up */
+  transition: transform 0.2s ease-out; /* Add transition for smooth animation */
+}
+
+.sidebar-link[data-bs-toggle="collapse"][aria-expanded="true"]::after {
+  transform: rotate(0deg); /* Rotate the icon back to its default position */
+}
+
+
+
+.navbar-expand .navbar-nav {
+  margin-left: auto;
+}
+/* Sidebar Toggle */
+
+#sidebar.collapsed {
+  margin-left: -264px;
+}
+/* Footer and Nav */
+
+@media (max-width:767.98px) {
+
+  .js-sidebar {
+      margin-left: -264px;
+  }
+
+
+
+  .navbar,
+  footer {
+      width: 100vw;
+  }
+}

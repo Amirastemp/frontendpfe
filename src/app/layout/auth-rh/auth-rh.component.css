@@ -1,0 +1,11 @@
+.text-gray-900 {
+  color: black; /* Set the color of the text to black */
+}
+
+.text-gray-900.mb-4 {
+  font-size: 24px; /* Increase the font size */
+}
+
+.text-white {
+  color: white; /* Set the color of the text to white */
+}

@@ -1,0 +1,17 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+
+.btn-success{
+  background-color: rgb(20, 114, 81);
+}
+.btn-danger{
+  background-color: rgb(67, 7, 7);
+}
+.btn-info{
+  background-color: rgb(74, 96, 151);
+}
+.disabled-icon {
+  opacity: 0.5; /* Réduire l'opacité pour simuler un état désactivé */
+  pointer-events: none; /* Désactiver les événements de clic */
+}

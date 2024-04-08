@@ -1,0 +1,143 @@
+<div class="wrapper">
+  <aside id="sidebar" class="js-sidebar">
+      <!-- Content For Sidebar -->
+      <div class="h-100">
+          <div class="sidebar-logo">
+              <a>
+                <div class="sidebar-brand-icon rotate-n-15"style="text-align:margin-left;">
+                <i class="fas fa-laugh-wink" ></i></div>
+                <div class="sidebar-brand-text mx-3" style="text-align: center;">
+                  Dashboar Director
+                </div>
+               </a>
+          </div>
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="#" routerLink="/admin/dashboard"style="border-bottom: 5px solid #f5f8f9;" class="sidebar-link">
+                    <i class="fa-solid fa-list pe-2"></i>
+                    Dashboard
+                </a>
+            </li>
+          <li class="sidebar-item">
+            <a  class="sidebar-link collapsed" data-bs-target="#pages"
+            data-bs-toggle="collapse"
+                aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                HR_mangement
+            </a>
+            <ul id="pages" class="sidebar-dropdown list-unstyled collapse"  data-bs-parent="#sidebar">
+              <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+                <a href="#" routerLink="/admin/addrh" class="sidebar-link">
+                    <i class="fa-solid fa-user pe-2"></i> <!-- Different icon class -->
+                    Add RH
+                </a>
+            </li>
+            <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+              <a href="#" routerLink="/admin/rhdetails" class="sidebar-link">
+                  <i class="fa-solid fa-info-circle pe-2"></i> <!-- Different icon class -->
+                  RH Details
+              </a>
+            </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/admin/rhs" routerLink="/admin/rhs" class="sidebar-link">
+                <i class="fa-solid fa-users pe-2"></i> <!-- Different icon class -->
+                Show All RH
+            </a>
+           </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a routerLink = "/admin/update-rh" class="sidebar-link">
+                <i class="fa-solid fa-user-edit pe-2"></i> <!-- Assuming an appropriate icon class for user editing -->
+                Update RH
+            </a>
+           </li>
+           </ul>
+          </li>
+          <li class="sidebar-item">
+            <a  class="sidebar-link collapsed" data-bs-target="#pages"
+            data-bs-toggle="collapse"
+                aria-expanded="false"><i class="fa-solid fa-users-cog pe-2"></i>
+
+                 Employee_mangement
+            </a>
+            <ul id="pages" class="sidebar-dropdown list-unstyled collapse"  data-bs-parent="#sidebar">
+              <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+                <a href="/admin/addemployee" routerLink="/admin/addemployee" class="sidebar-link">
+                    <i class="fa-solid fa-user pe-2"></i> <!-- Different icon class -->
+                    Add Employee
+                </a>
+            </li>
+            <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+              <a href="/admin/employeedetails" routerLink="/admin/employeedetails" class="sidebar-link">
+                  <i class="fa-solid fa-info-circle pe-2"></i> <!-- Different icon class -->
+                  Employee Details
+              </a>
+            </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/admin/employees" routerLink="/admin/employees" class="sidebar-link">
+                <i class="fa-solid fa-users pe-2"></i> <!-- Different icon class -->
+                Show All Employee
+            </a>
+           </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/admin/update-Employee" routerLink = "/admin/update-Employee" class="sidebar-link">
+                <i class="fa-solid fa-user-edit pe-2"></i> <!-- Assuming an appropriate icon class for user editing -->
+                Update Employee
+            </a>
+           </li>
+           </ul>
+          </li>
+      </ul>
+    </div>
+  </aside>
+  <div class="main">
+    <nav class="navbar navbar-expand px-3 border-bottom">
+      <button class="btn" id="sidebar-toggle" type="button">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Search input field -->
+      <form class="d-flex mx-3">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-dark" type="submit">Search</button>
+      </form>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+            <img class="img-profile rounded-circle"
+                src="assets/admin/img/undraw_profile.svg">
+        </a>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="userDropdown">
+            <button class="dropdown-item" (click)="logout()">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+            </button>
+        </div>
+    </li>
+
+
+
+
+          </nav>
+
+      <div class="container ">
+            <router-outlet></router-outlet>
+       </div>
+  </div>
+
+      <footer class="footer">
+          <div class="container-fluid">
+              <div class="row text-muted">
+                  <div class="col-6 text-start">
+                      <p class="mb-0">
+
+                      </p>
+                  </div>
+                  <div class="col-6 text-end">
+
+                  </div>
+              </div>
+          </div>
+      </footer>
+</div>
+
