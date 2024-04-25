@@ -33,8 +33,8 @@ private _loginUrl= "http://localhost:3000/api/auth/login";
   request(){
       return this.http.get<any>(this.Url)
        }
-  requestbyidemp(user: any){
-        return this.http.get<any>(this.idUrl,user)
+  requestbyidemp(f:string){
+        return this.http.get<any>(`${this.idUrl}/${f}`)
          }
   getrequestbyId(userId: string) {
     return this.http.get<any>(`${this.reqUrl}/${userId}`);

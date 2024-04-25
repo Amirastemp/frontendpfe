@@ -3,23 +3,27 @@
   <!-- Page Heading -->
 
   <!-- DataTales Example -->
-  <div class="card shadow mb-4">
+  <div class="card  mb-4">
       <div class="card-header py-3">
           <h6 class="m-2 font-weight-bold">Requests </h6>
       </div>
 
       <div class="card-body">
         <div class="table-responsive" style="margin-left: 5px;">
-          <table class="table circular-border-table" width="100%" id="dataTable" cellspacing="0">
+          <table class="table border" width="100%" id="dataTable" cellspacing="0">
             <thead>
               <tr>
                 <th>UserName</th>
                 <th>startDate</th>
                 <th>endDate</th>
                 <th>cause</th>
-          <th style="width: auto;"><a routerLink="/employee/addrequest" style="float: left;
-          margin-left: 7px; font-size: 14px;width: 120px;"
-          class="btn btn-coral ">Add Request</a></th>
+                <th style="width: auto;">
+                  <a routerLink="/employee/addrequest" style="float: left; margin-left: 7px; width: 120px;" class="btn btn-coral ">
+                    <i class="fas fa-plus-circle" style="color: coral;"></i> Add
+                  </a>
+                </th>
+                
+                
 
               </tr>
             </thead>
@@ -43,8 +47,8 @@
                 <td>{{ item.endDate }}</td>
                 <td>{{ item.cause }}</td>
                 <td>
-                  <i class="text-success mr-4 fas fa-edit fa-2x" (click)="modify(item)" data-toggle="modal" data-target="#exampleModal" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }"></i>
-                  <i class="text-coral fas fa-times fa-2x" (click)="cancel(item)" style="margin-left: 5px;" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }"></i>
+                  <i class=" mr-4 fas fa-edit fa-lg" (click)="modify(item)" data-toggle="modal" data-target="#exampleModal" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }"></i>
+                  <i class="text-coral fas fa-times fa-lg" (click)="cancel(item)" style="margin-left: 5px;" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }"></i>
                 </td>
 
 
@@ -60,10 +64,8 @@
           <span>Page {{ currentPage }} of {{ totalPages }}</span>
           <button class="btn btn-flat " [disabled]="currentPage === totalPages" (click)="nextPage()">
               <i class="bi bi-arrow-right"></i>
-
-              <!-- <i class="fas fa-arrow-right"></i>  -->
-          </button>
-      </div>
+        </button>
+      </div> 
         </div>
       </div>
   </div>

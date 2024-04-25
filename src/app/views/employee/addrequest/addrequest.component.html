@@ -13,7 +13,7 @@
         <div class="form-group">
           <label for="startDate">startDate</label>
           <input
-            type="date"
+          type="datetime-local"
             class="form-control"
             name="startDate"
             [(ngModel)]="requestData.startDate"
@@ -33,7 +33,7 @@
           <div class="form-group">
             <label for="endDate">endDate</label>
             <input
-              type="date"
+            type="datetime-local"
               class="form-control"
               name="endDate"
               [(ngModel)]="requestData.endDate"
@@ -77,7 +77,7 @@
           <br>
           <br>
           <div class="form-group">
-        <button (click)="onSubmit()" type="submit" class="btn btn-coral float-right form-control">ADD_Request</button>
+        <button  type="submit" class="btn btn-coral float-right form-control">ADD_Request</button>
         </div>
         <br/>
         <div class="alert alert-warning" *ngIf="isSignUpFailed">

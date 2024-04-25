@@ -9,6 +9,8 @@ import { RHLayoutComponent } from './layout/rh-layout/rh-layout.component';
 import { AuthRhComponent } from './layout/auth-rh/auth-rh.component';
 import { EmployeeLayoutComponent } from './layout/employee-layout/employee-layout.component';
 import { AuthEmployeeComponent } from './layout/auth-employee/auth-employee.component';
+import { AuthCandidatComponent } from './layout/auth-candidat/auth-candidat.component';
+import { CandidatLayoutComponent } from './layout/candidat-layout/candidat-layout.component';
 
 const routes: Routes = [
       { path: 'navbar', component: NavbarLayoutComponent },
@@ -33,6 +35,7 @@ const routes: Routes = [
       {path:"rh",component:RHLayoutComponent,children:[
         {path:"dashboard",loadChildren:()=>import('./views/admin/dashboard/dashboard.module').then(m=>m.DashboardModule)},
         {path:"employees",loadChildren:()=>import('./views/admin/employee_mangment/employees/employees.module').then(m=>m.EmployeesModule)},
+        {path:"employees/:id",loadChildren:()=>import('./views/admin/employee_mangment/employees/employees.module').then(m=>m.EmployeesModule)},
         {path:"addemployee",loadChildren:()=>import('./views/admin/employee_mangment/addemployee/addemployee.module').then(m=>m.AddemployeeModule)},
         {path:"employeedetails/:id",loadChildren:()=>import('./views/admin/employee_mangment/employeedetails/employeedetails.module').then(m=>m.EmployeedetailsModule)},
         {path:"updateemployee/:id",loadChildren:()=>import('./views/admin/employee_mangment/updateemployee/updateemployee.module').then(m=>m.UpdateemployeeModule)},
@@ -48,9 +51,14 @@ const routes: Routes = [
         {path:"updaterequest/:id",loadChildren:()=>import('./views/employee/updaterequest/updaterequest.module').then(m=>m.UpdaterequestModule)},
       ]},
       {path:"employee/login",component:AuthEmployeeComponent},
-    ]
 
-  ;
+      {path:"candidat",component:CandidatLayoutComponent,children:[
+        {path:"dashboard",loadChildren:()=>import('./views/admin/dashboard/dashboard.module').then(m=>m.DashboardModule)},
+
+
+    ]}, {path:"candidat/connected",component:AuthCandidatComponent},
+
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

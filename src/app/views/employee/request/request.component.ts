@@ -9,7 +9,7 @@ import { CongéService } from '../../service/congé.service';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
-  requestData: any = {};
+  requestData:string= '';
   datareq: any[] = [];
   username='';
   pagedData: any[] = [];
@@ -20,11 +20,13 @@ export class RequestComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.auth.getUser().username;
+    console.log(this.username)
+    this.requestData=this.auth.getUser().id;
+    console.log(this.requestData);
     this.auth.requestbyidemp(this.requestData).subscribe((data: any) => {
       console.log(data);
       this.datareq = data;
       this.totalPages = Math.ceil(this.datareq.length / this.pageSize);
-      // Update the data for the current page
       this.updatePageData();
 
       console.log(this.datareq);

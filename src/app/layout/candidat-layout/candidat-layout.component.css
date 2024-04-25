@@ -8,7 +8,7 @@
 
 #sidebar {
   width: 264px; /* Adjust as needed */
-  background: coral;
+  background:#029f5b;
   transition: all 0.35s ease-in-out;
   overflow-y: auto; /* Allow sidebar to scroll if content exceeds height */
 }
@@ -63,7 +63,7 @@ a.sidebar-link {
   font-size: 0.875rem;
 }
 .btn-coral {
-  background-color: coral;
+  background-color:#029f5b;
   color: white; /* Pour s'assurer que le texte est visible sur le bouton */
 }
 .sidebar-link[data-bs-toggle="collapse"]::after {
@@ -99,15 +99,13 @@ a.sidebar-link {
   }
 
 
+
   .navbar,
   footer {
       width: 100vw;
-  }
-}
-.dropdown-right {
-  position: absolute;
-  right: 0;
-}
-  
-  
+  }}
 
+  .dropdown-right {
+    position: absolute;
+    right: 0;
+  }

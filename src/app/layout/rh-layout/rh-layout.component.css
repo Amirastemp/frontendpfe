@@ -106,3 +106,161 @@ a.sidebar-link {
       width: 100vw;
   }
 }
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+.search-results {
+  position: absolute; /* Keep the search results container fixed in position */
+  top: 60px; /* Adjust as needed to align with the search bar */
+  left: 80px;
+  z-index: 999; /* Ensure the results are displayed above other content */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.group-title {
+  font-weight: bold;
+}
+
+.result-list {
+  max-height: 200px; /* Limit the height of the result list */
+  overflow-y: auto; /* Add scrollbar if needed */
+}
+
+.result-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.result-item:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+.no-results {
+  position: absolute;
+  color: rgb(85, 82, 82);
+  font-style: italic;
+  top: 60px; /* Adjust as needed to align with the search bar */
+  left: 80px;
+  width: 210px;;
+  z-index: 999; /* Ensure the message is displayed above other content */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+}
+.nav-item.dropdown {
+  position: absolute;
+
+  right: 60px;
+}
+
+/****************************************************/
+
+.notification-counter {
+  position: absolute;
+  top: 0px; /* Ajustez la position verticale selon votre mise en page */
+  right: -2px; /* Ajustez la position horizontale selon votre mise en page */
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 50%; /* Utilisez 50% pour créer un cercle */
+  padding: 2px 6px; /* Ajustez le remplissage pour ajuster la taille du cercle */
+  font-size: 12px; /* Ajustez la taille de la police selon vos besoins */
+}
+
+/* Augmentez la taille de l'icône */
+.notification-icon i {
+  font-size: 24px; /* Ajustez la taille de l'icône selon vos besoins */
+}
+
+/* Ajoutez d'autres styles si nécessaire */
+.notification-icon {
+  position: absolute;
+  padding: 5px 9px;
+  top: 10px;
+  right: 3px; /* Positionnement de l'icône à droite */
+  cursor: pointer; /* Ajoutez un curseur pour indiquer qu'il est cliquable */
+}
+
+/**************************notification menu*************************************************/
+.notification-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 999;
+  background-color: #fff; /* Change the background color */
+  border: 1px solid #ccc; /* Change the border color */
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Change the box shadow */
+}
+
+.notification-list {
+  max-height: 300px; /* Change the maximum height */
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add transition effect */
+  background-color: rgb(215, 223, 238); /* Couleur de fond par défaut */
+}
+
+
+.notification-item.selected {
+  background-color: white; /* Couleur de fond pour les éléments sélectionnés et survolés */
+}
+
+
+.notification-content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; /* Afficher les éléments en colonne */
+}
+
+.notification-message {
+  margin: 0;
+}
+.notification-timer {
+  color: #999; /* Changer la couleur du texte */
+  font-size: 12px; /* Changer la taille de la police */
+  font-style: italic; /* Mettre en italique */
+  margin-left: 10px; /* Ajuster la marge gauche */
+}
+
+.notification-message,
+.notification-timer {
+  display: block; /* Afficher chaque élément sur une nouvelle ligne */
+}
+
+.delete-notification {
+  cursor: pointer; /* Curseur indiquant que l'icône est cliquable */
+  color: cornflowerblue; /* Couleur de l'icône */
+  margin-left: 5px; /* Marge à gauche pour séparer l'icône du message */
+}
+
+.delete-notification:hover {
+  color: darkred; /* Changement de couleur au survol */
+}
+
+.delete-notification:active {
+  transform: scale(0.9); /* Réduire légèrement la taille lors du clic */
+}
+
+
+.notification-divider {
+  /* margin: 10px 0;
+  border: none; */
+  border-top: 1px solid #6c6b6b; /* Change the border color */
+}
+
+.scrollable {
+  max-height: 200px; /* Choisissez la hauteur maximale appropriée */
+  overflow-y: auto;
+}

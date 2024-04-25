@@ -5,7 +5,6 @@ import { PlanningRoutingModule } from './planning-routing.module';
 import { PlanningComponent } from './planning.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
-
 @NgModule({
   declarations: [
     PlanningComponent
@@ -13,7 +12,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
   imports: [
     CommonModule,
     PlanningRoutingModule,
-    FullCalendarModule
+    FullCalendarModule,
   ]
 })
 export class PlanningModule { }

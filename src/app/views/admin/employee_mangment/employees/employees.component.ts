@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthadminService } from 'src/app/views/service/authadmin.service';
 import { DataService } from 'src/app/views/service/data.service';
 
@@ -21,16 +21,18 @@ export class EmployeesComponent implements OnInit{
   itemToModify: any = null;
   userdata:any={}
   userRole=''
+  selectedUserId: string='';
   constructor(private authadmin:AuthadminService,
     private dataservice:DataService,
-    private route:Router) {
+    private route:Router,private routeA: ActivatedRoute) {
     }
 
   ngOnInit(): void {
 console.log("nnnnnnn");
-    this.authadmin.getEmployees(this.userdata).subscribe(data=>{
+    this.authadmin.getEmployees(this.userdata).subscribe((data:any)=>{
       console.log(data)
-      this.dataArray=data
+      this.dataArray=data.users;
+      console.log(this.dataArray);
       this.totalPages = Math.ceil(this.dataArray.length / this.pageSize);
         // Update the data for the current page
         this.updatePageData();
@@ -38,13 +40,22 @@ console.log("nnnnnnn");
   })
   this.userRole =this.dataservice.getUser().role
   console.log(this.userRole);
-}
 
+  this.routeA.queryParams.subscribe(params => {
+    this.selectedUserId = params['id'];
+    console.log(this.selectedUserId);
+  });
+}
+  //Function to determine if the item should be highlighted
+  shouldHighlight(itemId: string): boolean {
+    return itemId == this.selectedUserId;
+  }
 /*******************Updatepages****************************************** */
  updatePageData() {
       const startIndex = (this.currentPage - 1) * this.pageSize;
       const endIndex = Math.min(startIndex + this.pageSize, this.dataArray.length);
       this.pagedData = this.dataArray.slice(startIndex, endIndex);
+      console.log(this.pagedData);
   }
 
 prevPage() {
@@ -83,15 +94,24 @@ deleteEmployee(item: any) {
 
 
 details(item: any) {
-  console.log(item);
-  this.route.navigate(['/admin/employeedetails/'+item._id]);
+
+  if(this.userRole=='Director'){
+    console.log(item);
+    this.route.navigate(['/admin/employeedetails/'+item._id]);
+  }console.log(item);
+  this.route.navigate(['/rh/employeedetails/'+item._id]);
 }
+
+
+
 /************************************************************ */
 goto(item:any){
+  if(this.userRole=='Director'){
+    console.log(item);
+    this.route.navigate(['/admin/updateemployee/'+item._id]);
+  }
   console.log(item);
-  this.route.navigate(['/admin/updateemployee/'+item._id]);
+  this.route.navigate(['/rh/updateemployee/'+item._id]);
 }
 }
- {
 
-}

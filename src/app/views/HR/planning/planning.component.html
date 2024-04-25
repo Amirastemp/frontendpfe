@@ -1,106 +1,12 @@
-<div class="card shadow">
-  <div class="card-body">
-    <!-- Toggle for calendar visibility -->
-    <div class="demo-app-sidebar-section">
-      <label>
-        <input type="checkbox" [checked]="calendarVisible" (change)="handleCalendarToggle()" />
-        Toggle whole calendar
-      </label>
-    </div>
 
-    <!-- Toggle for weekends visibility -->
-    <div class="demo-app-sidebar-section">
-      <label>
-        <input type="checkbox" [checked]="calendarOptions.weekends" (change)="handleWeekendsToggle()" />
-        Toggle weekends
-      </label>
-    </div>
-
-    <!-- Calendar -->
-<!-- Calendar -->
-
-
-      <div class="demo-app-calendar">
-        <div class="calendar-container">
-          <div class="calendar-navigation">
-            <i class="fa fa-chevron-left" (click)="goToPreviousMonth()"></i> <h2>{{ currentMonth }}</h2>
-
-            <i class="fa fa-chevron-right" (click)="goToNextMonth()"></i>
-
-
-          </div>
-          <!-- Calendrier (grille) -->
-
-              <!-- Calendrier (grille) -->
-              <table class="calendar-table">
-                <thead>
-                  <tr>
-                    <th> Employees</th>
-
-                    <!-- Entête pour les jours de la semaine -->
-                    <th>Sun</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-
-                  </tr>
-
-                </thead>
-                <tbody>
-                  <!-- Pour chaque semaine -->
-                  <ng-container *ngFor="let week of calendarDays; let i = index">
-                    <tr>
-                      <!-- Liste des travailleurs dans la première colonne -->
-                      <td>
-                        <!-- Afficher le nom de l'employé correspondant -->
-                        {{ calendarOptions.resources[i % calendarOptions.resources.length].UserName }}
-                      </td>
-                      <!-- Pour chaque jour de la semaine -->
-                      <td *ngFor="let day of week" [class.other-month]="day.isOtherMonth">
-                        <!-- Afficher le jour du mois -->
-                        {{ day.date }}
-                        <!-- Div pour contenir les événements -->
-                        <div class="events-container">
-                          <!-- Pour chaque événement associé à ce jour -->
-                          <div *ngFor="let event of getEventsForDay(day.date)" class="event" [style.background-color]="getEventColor(event.resourceId)">
-                            <!-- Titre de l'événement -->
-                            {{ event.title }}
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </ng-container>
-                </tbody>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </table>
-
-
-        </div>
-      </div>
-
-
-
-
+<div class='card shadow' style='width: 90%; margin: auto;'> <!-- Adjust width and margin as needed -->
+  <div class='demo-app-main'>
+    <full-calendar *ngIf='calendarVisible' class='custom-calendar' [options]='calendarOptions'>
+      <ng-template #eventContent let-arg>
+        <div fc-timeline></div>
+        <i>{{ arg.event.title }}</i>
+      </ng-template>
+    </full-calendar>
   </div>
 </div>
+

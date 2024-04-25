@@ -11,18 +11,23 @@ import { DataService } from '../../service/data.service';
 export class RequestsComponent implements OnInit {
 
  datareq:any[]=[];
+ pagedData: any[] = [];
+ pageSize = 4; // Number of items per page
+ currentPage = 1; // Current page number
+ totalPages=1;
   constructor(private auth :AuthemployeeService,private conge:CongéService,private data : DataService){}
   ngOnInit(): void {
-this.auth.request().subscribe({
-  next:(Response:any[])=>{
-    console.log("all requests");
-    this.datareq=Response;
-
-    this.loadEmployees();
-    console.log("employee aaded");
-    console.log(this.datareq);
-  },error:(err:any)=>{
-console.log(err);
+       this.auth.request().subscribe({
+         next:(Response:any[])=>{
+           console.log("all requests");
+           this.datareq=Response;
+           this.totalPages = Math.ceil(this.datareq.length / this.pageSize);
+           console.log(this.totalPages);
+           this.loadEmployees();
+           console.log(this.datareq);
+           this.updatePageData();
+         },error:(err:any)=>{
+      console.log(err);
   }
 });
   }
@@ -58,5 +63,21 @@ console.log(err);
       }
     );
   }
-
+  prevPage() {
+    if (this.currentPage > 1) {
+        this.currentPage--;
+        this.updatePageData();
+    }
+  }
+  nextPage() {
+  if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePageData();
+  }
+  }
+    updatePageData() {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      const endIndex = Math.min(startIndex + this.pageSize, this.datareq.length);
+      this.pagedData = this.datareq.slice(startIndex, endIndex);
+  }
 }

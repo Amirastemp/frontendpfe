@@ -3,6 +3,9 @@ import { AuthadminService } from '../../service/authadmin.service';
 import { Router } from '@angular/router';
 import { AuthemployeeService } from '../../service/authemployee.service';
 import { DataService } from '../../service/data.service';
+import { io } from 'socket.io-client';
+import { SocketServiceService } from '../../service/socket-service.service';
+
 
 @Component({
   selector: 'app-addrequest',
@@ -15,8 +18,12 @@ export class AddrequestComponent implements OnInit{
   user:any={};
   isSuccessful = false;
   isSignUpFailed = false;
-  userId=''
-  constructor(private _auth: AuthemployeeService,private _data:DataService ,private _router:Router) { }
+  userId='';
+  socket: any;
+  constructor(private _auth: AuthemployeeService,private _data:DataService ,private _router:Router,private socketService: SocketServiceService) {
+        // Connect to the WebSocket server and HR namespace
+        this.socket = io('/hr');
+   }
   ngOnInit(): void {
  this. userId=this._auth.getUser().id;
     console.log(this.userId);
@@ -30,6 +37,7 @@ export class AddrequestComponent implements OnInit{
         // Handle error, e.g., display an error message to the user
       }
     });
+    
   }
   onSubmit(): void {
  const { startDate,endDate,cause} = this.requestData;
@@ -43,6 +51,7 @@ export class AddrequestComponent implements OnInit{
         console.log('Response:', data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.socketService.emitNewRequest(data);
         this._router.navigate(['/employee/requests']);
       },
       error: (err: any) => {

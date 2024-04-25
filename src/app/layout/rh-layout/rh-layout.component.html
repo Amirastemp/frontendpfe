@@ -21,10 +21,9 @@
 
           <li class="sidebar-item">
             <a  class="sidebar-link collapsed" data-bs-target="#pages"
-            data-bs-toggle="collapse"
-                aria-expanded="false"><i class="fa-solid fa-users-cog pe-2"></i>
-                 Employee_mangement
-            </a>
+            data-bs-toggle="collapse" aria-expanded="false">
+            <i class="fa-solid fa-users-cog pe-2"></i> Employee
+          </a>
             <ul id="pages" class="sidebar-dropdown list-unstyled collapse"  data-bs-parent="#sidebar">
               <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
                 <a href="/rh/addemployee" routerLink="/rh/addemployee" class="sidebar-link">
@@ -52,6 +51,19 @@
            </li>
            </ul>
           </li>
+          <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/rh/requests " routerLink = "/rh/requests" class="sidebar-link">
+              <i class="fas fa-umbrella-beach pe-2"></i>
+              <!-- Assuming an appropriate icon class for user editing -->
+                Demandes
+            </a>
+           </li>
+          <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/rh/planning " routerLink = "/rh/planning" class="sidebar-link">
+               <i class="far fa-calendar-alt pe-2"></i> <!-- Assuming an appropriate icon class for user editing -->
+                Calendar
+            </a>
+           </li>
       </ul>
     </div>
   </aside>
@@ -61,39 +73,86 @@
           <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Search input field -->
-      <form class="d-flex mx-3 mb-6">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-cornflowerblue" type="submit">Search</button>
-      </form>
-
-       <li class="nav-item dropdown no-arrow ml-5">
-        <a class="nav-link dropdown-toggle"  id="userDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-            <img class="img-profile rounded-circle"
-                src="assets/admin/img/undraw_profile.svg">
-        </a>
-        <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-left shadow animated--grow-in"
-            aria-labelledby="userDropdown">
-
-            <button class="dropdown-item"  >
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
-            </button>
+      <div class="d-flex mx-3 mb-6">
+        <div class="search-container">
+          <form class="d-flex" (ngSubmit)="onSearch()">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"[(ngModel)]="searchQuery"
+            [ngModelOptions]="{standalone: true}" name="searchQuery"  (input)="onInput($event)" >
+            <button class="btn btn-cornflowerblue" type="submit">Search</button>
+          </form>
+      <!-- Import Angular Material's MatMenuModule in your module file -->
+      <ng-container *ngIf="searchPerformed">
+        <div class="search-results" *ngIf="searchResults && searchResults.length > 0">
+          <div class="group-title">Search Results:{{totalelement}} Elements</div>
+          <div class="result-list">
+            <div class="result-item" *ngFor="let user of searchResults" (click)="selectUser(user)">
+              {{ user.firstName }} {{ user.lastName }} ({{ user.email }})
+            </div>
+          </div>
         </div>
-    </li>
+          <div *ngIf="totalelement == 0 || !searchQuery" class="no-results">
+            No results found
+          </div>
+
+      </ng-container>
+
+        </div>
 
 
+      </div>
+
+  <!-- Notification icon with click event -->
+<div class="notification-icon right"  (click)="toggleMenu()">
+  <i class="fa fa-bell"></i>
+  <!-- Notification counter -->
+  <span class="notification-counter">{{ notifications.length }}</span>
+</div>
+
+<div class="notification-menu shadow" *ngIf="menuOpen">
+  <div class="notification-list" [ngClass]="{'scrollable': notifications.length >= 4}">
+    <div *ngFor="let notification of notifications; let i = index"
+         class="notification-item"
+         [class.selected]="selectedItemIndex === i"
+         (click)="handleNotificationClick(i)">
+   
+   
+  
+      <div class="notification-content">
+        <p class="notification-message">
+          Request from {{ notification.userName.slice(0, 10) }}{{ notification.userName.length > 5 ? '...' : '' }} at {{ notification.date | date: 'medium' }}
+          <i class="material-icons dp48 delete-notification" (click)="deleteNotification(notification)">clear</i>
+        </p>
+        
+        <span class="notification-timer">{{ getTimeElapsed(notification.date) }}</span>
+      </div>
+
+      <!-- Ajouter une ligne horizontale entre chaque élément -->
+      <hr class="notification-divider">
+    </div>
+  </div>
+</div>
 
 
-
-          </nav>
-
-      <div class="container ">
+        <div class="nav-item dropdown no-arrow ml-5">
+  <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
+    data-toggle="dropdown">
+    <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+    <img class="img-profile rounded-circle" src="assets/images/myphoto.jpg" alt="User Photo">
+  </a>
+  <!-- Dropdown - User Information -->
+  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+    aria-labelledby="userDropdown">
+    <button class="dropdown-item">
+      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+      Logout
+    </button>
+  </div>
+       </div>          
+    </nav>
+       <div class="container ">
             <router-outlet></router-outlet>
        </div>
-  </div>
+     </div>
 
       <footer class="footer">
           <div class="container-fluid">

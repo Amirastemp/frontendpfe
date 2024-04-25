@@ -14,13 +14,15 @@ import { AuthemployeeService } from './views/service/authemployee.service';
 import { AuthrhService } from './views/service/authrh.service';
 import { CongéService } from './views/service/congé.service';
 import { DataService } from './views/service/data.service';
-import { FullCalendarModule } from '@fullcalendar/angular/full-calendar.module';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { SocketServiceService } from './views/service/socket-service.service';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
     UpdateRHComponent,
-
+  
 
 
   ],
@@ -32,10 +34,11 @@ import { FullCalendarModule } from '@fullcalendar/angular/full-calendar.module';
     LayoutModule,
     FormsModule,
     HomeModule,
+    SocketIoModule.forRoot(config)
 
 
   ],
-  providers: [AuthadminService,AuthemployeeService,AuthrhService,CongéService,DataService],
+  providers: [AuthadminService,AuthemployeeService,AuthrhService,CongéService,DataService,SocketServiceService],
   bootstrap: [AppComponent],
 
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthadminService } from 'src/app/views/service/authadmin.service';
+import { DataService } from 'src/app/views/service/data.service';
 
 @Component({
   selector: 'app-addemployee',
@@ -10,15 +11,16 @@ import { AuthadminService } from 'src/app/views/service/authadmin.service';
 export class AddemployeeComponent implements OnInit  {
   registerUserData: any = {};
   errorMessage = '';
-
+  userRole='';
   isSuccessful = false;
   isSignUpFailed = false;
+  user:any={};
   ngOnInit(): void {
 
     }
 
 
-  constructor(private _auth: AuthadminService,private _router:Router) { }
+  constructor(private _auth: AuthadminService,private _router:Router,private datas:DataService) { }
 
 
   onSubmit(): void {
@@ -30,11 +32,22 @@ export class AddemployeeComponent implements OnInit  {
     this._auth.registerEmployee({ firstName, lastName, userName, email, password, phone, active: isActivated }).subscribe({
 
       next: (data: any) => {
+
         console.log(active)
         console.log('Response:', data);
+
+        this.user=this.datas.getUser();
+        this.userRole=this.user.role;
+
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this._router.navigate(['/admin/employees']);
+
+        if(this.userRole=='RH'){
+          this._router.navigate(['/rh/employees']);
+        }else if (this.userRole=='admin'){
+          this._router.navigate(['/admin/employees']);
+        }
+        
       },
       error: (err: any) => {
         this.errorMessage = err.error.message;

@@ -1,1 +1,16 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+.highlight {
+  border: 2px solid cornflowerblue; /* Add a blue border */
+  background-color: lightgray; /* Light gray background */
+  animation: glow 1s infinite alternate; /* Apply the glow animation to the background */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px gray; /* Start with a gray shadow */
+  }
+  to {
+    box-shadow: 0 0 20px gray; /* End with a larger gray shadow */
+  }
+}
+

@@ -9,6 +9,7 @@ export class DataService {
   private  _deleteUrl= "http://localhost:3000/api/auth/users";
   private  _usersUrl= "http://localhost:3000/api/auth/users";
  private _userUrl="http://localhost:3000/api/auth/users";
+ private _searchUrl="http://localhost:3000/api/search/searchUser";
   constructor(private http:HttpClient) { }
 
   deleteuser(email: string):Observable<any> {
@@ -43,6 +44,10 @@ export class DataService {
   public saveUser(user: any): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY,JSON.stringify(user));
+  }
+  public search(f: string) {
+    return this.http.get<any>(`${this._searchUrl}?search=${f}`);
+    console.log('done');
   }
 
 }
