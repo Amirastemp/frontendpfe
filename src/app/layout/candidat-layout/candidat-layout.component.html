@@ -57,20 +57,9 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-coral" type="submit">Search</button>
       </form>
-      <div class="nav-item dropdown dropdown-right no-arrow ml-5">
-        <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
-          data-toggle="dropdown">
-          <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-          <i class="fas fa-user-circle fa-lg"></i> <!-- User icon -->
-        </a>
-        <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-          aria-labelledby="userDropdown">
-          <button class="dropdown-item">
-            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
-          </button>
-        </div>
+      <div class="nav-item dropdown no-arrow ml-5">
+        <p class="userName" >{{username}}</p> 
+          <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
       </div>
                
           </nav>

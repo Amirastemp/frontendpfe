@@ -22,6 +22,8 @@ export class RHLayoutComponent implements OnInit {
   isContextMenuOpen: boolean = false;
   timeElapsed: number = 0;
   timer:any;
+  username='';
+  user:any={};
   @Output() userSelected = new EventEmitter<any>();
 
   constructor(private datas : DataService,private socketService: SocketServiceService,private router: Router, private route: ActivatedRoute)
@@ -44,8 +46,12 @@ export class RHLayoutComponent implements OnInit {
       });
     });
   
-  
+  this.user=this.datas.getUser();
+  console.log(this.user);
+  this.username=this.user.username;
+  console.log(this.username);
   this.getTimeElapsed(this.notif.date);
+
 }
 
 toggleMenu() {

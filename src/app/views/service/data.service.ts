@@ -32,6 +32,7 @@ export class DataService {
     window.sessionStorage.clear();
     window.localStorage.clear();
   }
+  
   public getUser(){
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {

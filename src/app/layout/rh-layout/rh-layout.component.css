@@ -4,8 +4,7 @@
   display: flex;
   height: 100vh;
 }
-
-
+/**********************sideBar**********************************/
 #sidebar {
   width: 264px; /* Adjust as needed */
   background:cornflowerblue;
@@ -98,15 +97,12 @@ a.sidebar-link {
   .js-sidebar {
       margin-left: -264px;
   }
-
-
-
-  .navbar,
+.navbar,
   footer {
       width: 100vw;
   }
 }
-
+/*************searching**************************************/
 .search-container {
   display: flex;
   flex-direction: column;
@@ -139,9 +135,6 @@ a.sidebar-link {
 .result-item:hover {
   background-color: #f1f1f1;
 }
-
-
-
 .no-results {
   position: absolute;
   color: rgb(85, 82, 82);
@@ -155,40 +148,71 @@ a.sidebar-link {
   border-radius: 4px;
   padding: 8px;
 }
+/*************connexion***************************/
 .nav-item.dropdown {
   position: absolute;
-
-  right: 60px;
+  right: 120px;
+  cursor: pointer; 
+  top: 18px;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
 }
 
-/****************************************************/
+.img-profile {
+  width: 30px; /* Adjust the width of the image */
+  height: 30px; /* Adjust the height of the image */
+  margin-left: 10px; /* Add margin to separate the image from the username */
+}
+
+.userName {
+  margin-top: 0px; /* Adjust the top margin of the username */
+  font-size: 14px; /* Adjust the font size of the username */
+}
+
+/*********************setting*************************************/
+.rad-dropdown {
+  position: absolute;
+  top: 18px; /* Adjust top position as needed */
+  right: 0; /* Position to the right */
+  cursor: pointer; 
+}
+
+.rad-menu-item {
+  /* Add styles for the menu item */
+}
+
+.rad-dropmenu-item {
+  /* Add styles for the dropdown menu */
+}
+
+
+/***********************Notification*****************************/
 
 .notification-counter {
   position: absolute;
-  top: 0px; /* Ajustez la position verticale selon votre mise en page */
-  right: -2px; /* Ajustez la position horizontale selon votre mise en page */
+  top: 7px; /* Adjust the vertical position according to your layout */
+  right: -5px; /* Adjust the horizontal position according to your layout */
   background-color: cornflowerblue;
   color: white;
-  border-radius: 50%; /* Utilisez 50% pour créer un cercle */
-  padding: 2px 6px; /* Ajustez le remplissage pour ajuster la taille du cercle */
-  font-size: 12px; /* Ajustez la taille de la police selon vos besoins */
+  border-radius: 50%; /* Use 50% to create a circle */
+  padding: 2px 6px; /* Adjust padding to adjust the size of the circle */
+  font-size: 12px; /* Adjust font size as needed */
 }
 
-/* Augmentez la taille de l'icône */
 .notification-icon i {
-  font-size: 24px; /* Ajustez la taille de l'icône selon vos besoins */
+  font-size: 24px; /* Adjust the size of the icon as needed */
 }
 
-/* Ajoutez d'autres styles si nécessaire */
 .notification-icon {
   position: absolute;
   padding: 5px 9px;
-  top: 10px;
-  right: 3px; /* Positionnement de l'icône à droite */
-  cursor: pointer; /* Ajoutez un curseur pour indiquer qu'il est cliquable */
+  top: 16px;
+  right: 60px; /* Position the icon on the right */
+  cursor: pointer; /* Add a cursor to indicate it's clickable */
 }
 
-/**************************notification menu*************************************************/
+
+/**************************notification menu*******/
 .notification-menu {
   position: absolute;
   top: 100%;

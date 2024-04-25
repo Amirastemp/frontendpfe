@@ -72,6 +72,7 @@
       <button class="btn" id="sidebar-toggle" type="button">
           <span class="navbar-toggler-icon"></span>
       </button>
+    <!--*********************searching*************************************************** -->
       <!-- Search input field -->
       <div class="d-flex mx-3 mb-6">
         <div class="search-container">
@@ -100,15 +101,15 @@
 
 
       </div>
-
+    <!--***********************Notification****************************************** -->
   <!-- Notification icon with click event -->
-<div class="notification-icon right"  (click)="toggleMenu()">
+   <div class="notification-icon right"  (click)="toggleMenu()">
   <i class="fa fa-bell"></i>
   <!-- Notification counter -->
   <span class="notification-counter">{{ notifications.length }}</span>
 </div>
 
-<div class="notification-menu shadow" *ngIf="menuOpen">
+   <div class="notification-menu shadow" *ngIf="menuOpen">
   <div class="notification-list" [ngClass]="{'scrollable': notifications.length >= 4}">
     <div *ngFor="let notification of notifications; let i = index"
          class="notification-item"
@@ -132,25 +133,27 @@
   </div>
 </div>
 
-
-        <div class="nav-item dropdown no-arrow ml-5">
-  <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
-    data-toggle="dropdown">
-    <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-    <img class="img-profile rounded-circle" src="assets/images/myphoto.jpg" alt="User Photo">
+<--****************************profile*************************************** --!>
+<div class="nav-item dropdown no-arrow ml-5">
+    
+  <p class="userName" >{{username}}</p> 
+    <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
+  
+</div>
+  <--***********************settings*****************************--!>
+<div class="rad-dropdown">
+  <a class="rad-menu-item">
+    <!-- Replace the icon with three dots -->
+    <i class="fas fa-ellipsis-v fa-lg"></i>
   </a>
-  <!-- Dropdown - User Information -->
-  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-    aria-labelledby="userDropdown">
-    <button class="dropdown-item">
-      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-      Logout
-    </button>
-  </div>
-       </div>          
-    </nav>
+  <ul class="rad-dropmenu-item rad-settings">
+    <!-- Your dropdown menu items go here -->
+  </ul>
+</div>
+        
+</nav>
        <div class="container ">
-            <router-outlet></router-outlet>
+          <router-outlet></router-outlet>
        </div>
      </div>
 
