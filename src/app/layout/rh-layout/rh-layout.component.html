@@ -115,15 +115,15 @@
          class="notification-item"
          [class.selected]="selectedItemIndex === i"
          (click)="handleNotificationClick(i)">
-   
-   
-  
+
+
+
       <div class="notification-content">
         <p class="notification-message">
           Request from {{ notification.userName.slice(0, 10) }}{{ notification.userName.length > 5 ? '...' : '' }} at {{ notification.date | date: 'medium' }}
           <i class="material-icons dp48 delete-notification" (click)="deleteNotification(notification)">clear</i>
         </p>
-        
+
         <span class="notification-timer">{{ getTimeElapsed(notification.date) }}</span>
       </div>
 
@@ -133,14 +133,14 @@
   </div>
 </div>
 
-<--****************************profile*************************************** --!>
+<!--****************************profile*************************************** -->
 <div class="nav-item dropdown no-arrow ml-5">
-    
-  <p class="userName" >{{username}}</p> 
+
+  <p class="userName" >{{username}}</p>
     <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
-  
+
 </div>
-  <--***********************settings*****************************--!>
+  <!--***********************settings*****************************-->
 <div class="rad-dropdown">
   <a class="rad-menu-item">
     <!-- Replace the icon with three dots -->
@@ -150,7 +150,7 @@
     <!-- Your dropdown menu items go here -->
   </ul>
 </div>
-        
+
 </nav>
        <div class="container ">
           <router-outlet></router-outlet>

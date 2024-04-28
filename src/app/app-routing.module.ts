@@ -54,7 +54,8 @@ const routes: Routes = [
 
       {path:"candidat",component:CandidatLayoutComponent,children:[
         {path:"dashboard",loadChildren:()=>import('./views/admin/dashboard/dashboard.module').then(m=>m.DashboardModule)},
-
+        {path:"profile",loadChildren:()=>import('./views/candidat/candidat-profile/candidat-profile.module').then(m=>m.CandidatProfileModule)},
+        {path:"updateprofile",loadChildren:()=>import('./views/candidat/update-profile/update-profile.module').then(m=>m.UpdateProfileModule)},
 
     ]}, {path:"candidat/connected",component:AuthCandidatComponent},
 

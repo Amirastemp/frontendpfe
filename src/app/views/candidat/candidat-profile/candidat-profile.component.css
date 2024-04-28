@@ -1,0 +1,123 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+.profile-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-details {
+  font-size: 16px;
+}
+
+.profile-section {
+  margin-bottom: 30px;
+}
+
+.profile-section h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.btn{
+  margin-bottom: 30px;
+}
+/* experience here css*/
+.experience-table {
+
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.experience-table th,
+.experience-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.experience-table th {
+  background-color: #f2f2f2;
+}
+
+.experience-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/* education here css*/
+.education-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.education-table th,
+.education-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.education-table th {
+  background-color: #f2f2f2;
+}
+
+.education-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+.skill-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skill-table th,
+.skill-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+/* skills here css*/
+.skill-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+}
+
+.skill-table td {
+  text-align: left;
+}
+
+.skill-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/*cv file css*/
+
+.cv-file a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cv-file a:hover {
+  background-color: #0056b3;
+}

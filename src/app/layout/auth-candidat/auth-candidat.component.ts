@@ -28,7 +28,7 @@ export class AuthCandidatComponent implements OnInit {
         this.data.saveUser(data);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
-        if(data.role=="candidat" && data.active==true){
+        if(data.role=="candidat" ){
           this.router.navigate(['/candidat']);
         }console.log(`not candidat #${data.role}`)
       },
@@ -50,17 +50,17 @@ export class AuthCandidatComponent implements OnInit {
         localStorage.setItem('Token',data.accessToken);
         this.data.saveUser(data);
           this.router.navigate(['/candidat']);
-       
+
       },
       error: (err:any) => {
         if (err.status === 401) {
           this.errorMessage = 'email deja exist';
-        } 
+        }
         }
       });
     };
-    
-  
+
+
 
   toggleForm(form: string) {
     if(form === 'login'){

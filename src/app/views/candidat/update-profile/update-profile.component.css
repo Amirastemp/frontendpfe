@@ -1,0 +1,207 @@
+
+.card-section {
+  margin-bottom: 20px;
+  background-color: #fff; /* Couleur de fond de la carte */
+  border-radius: 5px; /* Coins arrondis de la carte */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre de la carte */
+  padding: 20px; /* Espacement interne de la carte */
+}
+.card-section .skills-form input[type="text"],
+.card-section .experience-form input[type="text"],
+.card-section .experience-form input[type="date"],
+.card-section .experience-form textarea,
+.card-section .education-form input[type="text"],
+.card-section .education-form input[type="date"],
+.card-section .education-form textarea {
+  width: 100%;
+  border-color: #029f5b;
+}
+.update-profile {
+  margin-bottom: 30px;
+  margin: 0 auto; /* Assurez-vous que le conteneur est centré horizontalement */
+  width: 70%; /* Définissez la largeur souhaitée pour le conteneur */
+}
+
+.update-profile h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  margin-bottom: 20px;
+}
+
+.profile-section h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.profile-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-section input[type="text"],
+.profile-section input[type="date"],
+.profile-section textarea,
+.profile-section select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-color: #029f5b;
+}
+
+/* Ajoutez ceci à votre fichier CSS */
+
+
+.profile-section .experience-form .required {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+.profile-section .education-form  .required {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: -15px;
+ }
+ .profile-section .skills-form .required {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+.profile-info .required {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+.experience-form input[type="text"],
+.experience-form input[type="date"],
+.experience-form textarea,
+.education-form input[type="text"],
+.education-form input[type="date"],
+.education-form textarea,
+.skills-form input[type="text"] {
+  width:70%;
+  border-color: #029f5b;
+  margin: 0 auto; /* Centre les champs de texte horizontalement */
+}
+.experience-form input[type="text"]:focus,
+.experience-form input[type="date"]:focus,
+.experience-form textarea:focus,
+.education-form input[type="text"]:focus,
+.education-form input[type="date"]:focus,
+.education-form textarea:focus,
+.skills-form input[type="text"]:focus {
+  outline: none;
+  border-color: #029f5b;
+
+}
+
+.skills-form select {
+  width: 150px; /* Définissez la largeur souhaitée pour le menu déroulant */
+}
+
+.profile-section textarea {
+  height: 100px;
+}
+
+.btn-update-profile {
+  background-color: #029f5b;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+/* le donnees personnele************info**********************************************/
+/* .profile-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+} */
+
+/* .profile-info .profile-details {
+  margin-left: 20px;
+} */
+
+/* .profile-info .form-group {
+  margin-bottom: 10px;
+} */
+
+.profile-info label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-info input[type="text"],
+.profile-info input[type="email"],
+.profile-info input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-color: #029f5b;
+}
+
+.profile-info textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-color: #029f5b;
+  resize: vertical;
+}
+
+/* .profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 0;
+} */
+
+.profile-info input[type="text"]:focus,
+.profile-info input[type="email"]:focus,
+.profile-info input[type="tel"]:focus,
+.profile-info textarea:focus {
+  outline: none;
+  border-color: #029f5b;
+}
+.profile-info h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/*css of btn ************************************************************/
+.profile-info .btn-update-profile {
+  background-color: #029f5b;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.profile-info .btn-update-profile:hover {
+  background-color: #029f5b;
+}
+.btn{
+  background-color: #029f5b;
+  border-color: #029f5b;
+}
+.btn :hover {
+  background-color: #029f5b;
+}

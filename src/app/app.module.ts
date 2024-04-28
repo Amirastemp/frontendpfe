@@ -16,12 +16,16 @@ import { CongéService } from './views/service/congé.service';
 import { DataService } from './views/service/data.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocketServiceService } from './views/service/socket-service.service';
+import { CandidatProfileComponent } from './views/candidat/candidat-profile/candidat-profile.component';
+import { UpdateProfileComponent } from './views/candidat/update-profile/update-profile.component';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
     UpdateRHComponent,
+    CandidatProfileComponent,
+    UpdateProfileComponent,
   
 
 

@@ -21,7 +21,7 @@
           <li class="sidebar-item">
             <a class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" aria-expanded="false">
               <i class="fas fa-calendar pe-2"></i> <!-- Utilisation de la classe d'icône de calendrier -->
-              Job post 
+              Job post
           </a>
             <ul id="pages" class="sidebar-dropdown list-unstyled collapse"  data-bs-parent="#sidebar">
               <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
@@ -57,11 +57,12 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-coral" type="submit">Search</button>
       </form>
-      <div class="nav-item dropdown no-arrow ml-5">
-        <p class="userName" >{{username}}</p> 
-          <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
+      <div class="nav-item dropdown no-arrow ml-5" routerLink="/candidat/profile">
+        <p class="userName">{{ username }}</p>
+        <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
+        <i class="fas fa-exclamation-circle attention-icon" *ngIf="profileCompletion < 100" style="color: red;"></i>
       </div>
-               
+
           </nav>
 
       <div class="container ">

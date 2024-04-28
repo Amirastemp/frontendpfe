@@ -1,0 +1,116 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h2>Profil Candidat</h2>
+  </div>
+  <div class="profile-info">
+    <div class="profile-picture">
+      <img src="assets/images/myphoto.jpg" alt="Photo de profil">
+    </div>
+    <div class="profile-details">
+      <h3>{{candidat.firstName}} {{candidat.lastName}}</h3>
+      <p>Email : {{candidat.email}}</p>
+      <p>Téléphone : {{candidat.phone}}</p>
+      <p>Adresse : {{candidat.address}}</p>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="navigateToUpdateProfile()">
+      Complete Your Profile
+      <i class="fas fa-exclamation-circle attention-icon" *ngIf="profileCompletion < 100" style="color: red;"></i>
+    </button>
+
+
+
+
+</div>
+<div *ngIf="profileCompletion < 100" class="profile-section">
+  <h3>Expérience Professionnelle</h3><p>{{expPro.status}}</p>
+  <table class="experience-table">
+    <thead>
+      <tr>
+        <th>Titre du poste</th>
+        <th>Nom de l'entreprise</th>
+        <th>Date de début</th>
+        <th>Date de fin</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let experience of expPro ;let i=index ">
+        <td>{{ experience.title }}</td>
+        <td>{{ experience.company }}</td>
+        <td>{{ experience.startDate | date }}</td>
+        <td>{{ experience.endDate | date }}</td>
+        <td>
+          <i class="fas fa-edit  mr-4 cursor-pointer" style="margin-right: 5px;" data-toggle="modal" (click)="goto(item)" data-target="#exampleModal"></i>
+          <i class="fas fa-trash-alt text-danger cursor-pointer" style="margin-left: 5px;" (click)="DeletePro(experience._id,i)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="profileCompletion < 100" class="profile-section">
+  <h3>Formation Académique</h3>
+  <table class="education-table">
+    <thead>
+      <tr>
+        <th>Diplôme</th>
+        <th>Institution</th>
+        <th>Date de début</th>
+        <th>Date de fin</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let experience of expAca;let i=index">
+        <!-- <ng-container >{{ experience._id }}</ng-container> -->
+        <td>{{ experience.degree }}</td>
+        <td>{{ experience.institution }}</td>
+        <td>{{ experience.startDate | date }}</td>
+        <td>{{ experience.endDate | date }}</td>
+        <td>{{ experience.description }}</td>
+        <td>
+          <i class="fas fa-edit  mr-4 cursor-pointer" style="margin-right: 5px;" data-toggle="modal" (click)="update(experience)" data-target="#exampleModal"></i>
+
+          <i class="fas fa-trash-alt text-danger cursor-pointer" style="margin-left: 5px;" (click)="DeleteAca(experience._id,i)"></i>
+        </td>
+      </tr>
+      <!-- Ajoutez d'autres lignes pour plus de formations académiques si nécessaire -->
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="profileCompletion < 100" class="profile-section">
+  <h3>Skills</h3>
+  <table class="skill-table">
+    <thead>
+      <tr>
+        <th>Nom de la compétence</th>
+        <th>Niveau de maîtrise</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let skill of skills;let i=index">
+        <td>{{ skill.name }}</td>
+        <td>{{ skill.proficiency }}</td>
+        <td>
+          <i class="fas fa-edit  mr-4 cursor-pointer" style="margin-right: 5px;" data-toggle="modal" (click)="goto(item)" data-target="#exampleModal"></i>
+          <i class="fas fa-trash-alt text-danger cursor-pointer" style="margin-left: 5px;" (click)="Deleteskill(skill._id,i)"></i>
+        </td>
+      </tr>
+      <!-- Ajoutez d'autres lignes pour plus de compétences si nécessaire -->
+    </tbody>
+  </table>
+</div>
+<div class="profile-section">
+  <h3>CV File</h3>
+  <div class="cv-file">
+    <a href="link_to_cv_file.pdf" target="_blank">View CV</a>
+  </div>
+</div>
+
+</div>
+
