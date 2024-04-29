@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthcandidatService } from '../../service/authcandidat.service';
 import { DataService } from '../../service/data.service';
 
@@ -19,10 +19,11 @@ export class UpdateProfileComponent implements OnInit {
   professionalExp: any = {}
   academicExp: any = {};
   skill: any ={};
-  cvFile='';
+  cvFile: File | null = null;
   // profilePhotoPreview:any='';
 
-  constructor(private routeA:ActivatedRoute, private authCandidat:AuthcandidatService,private datas:DataService,) { }
+  constructor(private routeA:ActivatedRoute,private router:Router, private authCandidat:AuthcandidatService,private datas:DataService,)
+  {    }
 
   ngOnInit(): void {
     this.routeA.queryParams.subscribe(params => {
@@ -47,18 +48,18 @@ export class UpdateProfileComponent implements OnInit {
     });
   });
  }
-  // addAcademicExperience(): void {
-  //   // Add a new empty academic experience object to the array
-  //   this.academicExperiences.push({ degree: '', institution: '', startDate: '', endDate: '', description: '' });
-  // }
-  // addSkill(): void {
-  //   // Add a new empty skill object to the array
-  //   this.skills.push({ name: '', proficiency: 'Beginner' });
-  // }
-    // addExperience(): void {
-    //   // Add a new empty experience object to the array
-    //   this.professionalExperiences.push({ title: '', company: '', startDate: '', endDate: '' ,description:''});
-    // }
+  addAcademicExperience(): void {
+    // Add a new empty academic experience object to the array
+    this.academicExperiences.push({ degree: '', institution: '', startDate: '', endDate: '', description: '' });
+  }
+  addSkill(): void {
+    // Add a new empty skill object to the array
+    this.skills.push({ name: '', proficiency: 'Beginner' });
+  }
+    addExperience(): void {
+      // Add a new empty experience object to the array
+      this.professionalExperiences.push({ title: '', company: '', startDate: '', endDate: '' ,description:''});
+    }
     onSubmit(): void {
       // Update the candidate data
       this.authCandidat.updateuserById(this.candidat._id, this.candidat).subscribe((data: any) => {
@@ -82,12 +83,22 @@ export class UpdateProfileComponent implements OnInit {
         console.log(this.skill);
         console.log('Skills successfully saved');
       });
-      this.authCandidat.updateCandidat(this.selectedUserId,this.cvFile).subscribe((data:any)=>{
-        console.log("update successfully ");
-      })
+
+      this.router.navigate(['/candidat/profile']);
     }
 
-
+    updateCandidate(file: File) {
+      if (!file) {
+        console.error('No file selected');
+        return;
+      }
+      this.cvFile = file;
+      const formData = new FormData();
+      formData.append('cvFile', this.cvFile);
+      this.authCandidat.updateCandidat(this.selectedUserId, formData).subscribe((data: any) => {
+        console.log("Update successful");
+      });
+    }
 
 
 

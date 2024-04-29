@@ -70,7 +70,7 @@ export class AuthcandidatService {
   deletebyIdAca(userId: string, ) {
     return this.http.delete<any>(`${this._delUrl}/${userId}`);
   }
-  updateCandidat(userId: string, userdata: any) {
+  updateCandidat(userId: string, userdata:FormData) {
     return this.http.put<any>(`${this._url}/${userId}`, userdata);
   }
 }

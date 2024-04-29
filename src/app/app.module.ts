@@ -18,6 +18,9 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocketServiceService } from './views/service/socket-service.service';
 import { CandidatProfileComponent } from './views/candidat/candidat-profile/candidat-profile.component';
 import { UpdateProfileComponent } from './views/candidat/update-profile/update-profile.component';
+import { AddjobpostComponent } from './views/HR/jobpostsystem/addjobpost/addjobpost.component';
+import { UpdatejobpostComponent } from './views/HR/jobpostsystem/updatejobpost/updatejobpost.component';
+import { AlljobpostComponent } from './views/HR/jobpostsystem/alljobpost/alljobpost.component';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
@@ -26,7 +29,10 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     UpdateRHComponent,
     CandidatProfileComponent,
     UpdateProfileComponent,
-  
+    AddjobpostComponent,
+    UpdatejobpostComponent,
+    AlljobpostComponent,
+
 
 
   ],

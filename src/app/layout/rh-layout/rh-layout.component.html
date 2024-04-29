@@ -64,6 +64,40 @@
                 Calendar
             </a>
            </li>
+           <li class="sidebar-item">
+            <a class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" aria-expanded="false">
+              <i class="fas fa-briefcase pe-2"></i> <!-- Utilisation de l'icône "briefcase" pour représenter une offre d'emploi -->
+              job Post
+            </a>
+            <ul id="pages" class="sidebar-dropdown list-unstyled collapse"  data-bs-parent="#sidebar">
+              <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+                <a href="/rh/addjobPost" routerLink="/rh/addjobPost" class="sidebar-link">
+                  <i class="fas fa-plus-circle pe-2"></i> <!-- Utilisation de l'icône "plus-circle" pour ajouter une offre d'emploi -->
+                  Add job Post
+                </a>
+
+            </li>
+            <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+              <a href="/rh/jobPostdetails" routerLink="/rh/jobPostdetails" class="sidebar-link">
+                  <i class="fa-solid fa-info-circle pe-2"></i> <!-- Different icon class -->
+                  Job Post Details
+              </a>
+            </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/rh/alljobPost" routerLink="/rh/alljobPost" class="sidebar-link">
+              <i class="fas fa-list-alt pe-2"></i> <!-- Utilisation de l'icône "list-alt" pour afficher toutes les offres d'emploi -->
+              Show All job Post
+            </a>
+
+           </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/rh/updatejobPost" routerLink="/rh/updatejobPost" class="sidebar-link">
+              <i class="fas fa-edit pe-2"></i> <!-- Utilisation de l'icône "edit" pour mettre à jour une offre d'emploi -->
+              Update job Post
+            </a>
+           </li>
+           </ul>
+          </li>
       </ul>
     </div>
   </aside>

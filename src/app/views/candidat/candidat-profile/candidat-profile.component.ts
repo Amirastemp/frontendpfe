@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { AuthcandidatService } from '../../service/authcandidat.service';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-candidat-profile',
@@ -19,21 +21,26 @@ export class CandidatProfileComponent implements OnInit{
   candidatId='';
   candidatData:any={};
   profileCompletion: number = 0;
-  constructor(private datas:DataService,private authCandidate:AuthcandidatService,private router: Router){}
+  cvFile:File|undefined;
+  cvFileUrl: SafeResourceUrl | undefined;
+  constructor(private datas:DataService,private authCandidate:AuthcandidatService,private router: Router,private sanitizer: DomSanitizer){}
   ngOnInit(): void {
-
-
     this.user=this.datas.getUser();
     this.authCandidate.getcandidatbyuserid(this.user.id).subscribe((data:any)=>{
       this.candidatId=data._id;
       console.log(this.candidatId);
       this.candidatData=data;
+      this.cvFile=data.cvFile;
+      console.log(this.cvFile);
       console.log(this.candidatData);
       this.getCandidatinfo();
       this.getpersontage();
       this.getcandidatExp(this.candidatData._id);
+      // Assuming cvFile contains the URL or file path of the CV file
+      //  this.cvFileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(data.cvFile);
     });
   }
+
   navigateToUpdateProfile() {
     this.router.navigate(['/candidat/updateprofile'], { queryParams: { id: this.candidatId } });
   }

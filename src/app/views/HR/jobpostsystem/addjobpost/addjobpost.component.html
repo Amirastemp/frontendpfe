@@ -1,0 +1,137 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header">
+          <h3 class="mb-0 text-center "> Add  new Job Post </h3>
+        </div>
+        <div class="card-body">
+          <form class="form"   *ngIf="!isSuccessful"
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate>
+          <div class="form-group">
+            <label for="title">Title :</label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              [(ngModel)]="registerjobData.title"
+              required
+              minlength="3"
+              maxlength="20"
+              #title="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && title.errors }"
+            />
+            <div class="invalid-feedback" *ngIf="title.errors && f.submitted">
+              <div *ngIf="title.errors['required']">title is required</div>
+              <div *ngIf="title.errors['minlength']">
+                title must be at least 3 characters
+              </div>
+              <div *ngIf="title.errors['maxlength']">
+                title must be at most 20 characters
+              </div>
+            </div>
+          </div>
+            <div class="form-group">
+              <label for="description">description</label>
+              <input
+                type="text"
+                class="form-control"
+                name="description"
+                [(ngModel)]="registerjobData.description"
+                required
+                minlength="3"
+                maxlength="20"
+                #description="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+              />
+              <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+                <div *ngIf="description.errors['required']">description is required</div>
+                <div *ngIf="description.errors['minlength']">
+                  description must be at least 3 characters
+                </div>
+                <div *ngIf="description.errors['maxlength']">
+                  description must be at most 20 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">company</label>
+              <input
+                type="text"
+                class="form-control"
+                name="company"
+                [(ngModel)]="registerjobData.company"
+                required
+                minlength="3"
+                maxlength="20"
+                #company="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && company.errors }"
+              />
+              <div class="invalid-feedback" *ngIf="company.errors && f.submitted">
+                <div *ngIf="company.errors['required']">company is required</div>
+                <div *ngIf="company.errors['minlength']">
+                  company must be at least 3 characters
+                </div>
+                <div *ngIf="company.errors['maxlength']">
+                  company must be at most 20 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="salary">location</label>
+              <input
+                type="location"
+                class="form-control"
+                name="location"
+                [(ngModel)]="registerjobData.location"
+                required
+                location
+                #location="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && location.errors }"
+              />
+              <div class="invalid-feedback" *ngIf="location.errors && f.submitted">
+                <div *ngIf="location.errors['required']">location is required</div>
+                <div *ngIf="location.errors['location']">
+                  location must be a valid location address
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="salary">salary</label>
+              <input
+                type="salary"
+                class="form-control"
+                name="salary"
+                [(ngModel)]="registerjobData.salary"
+                required
+                salary
+                #salary="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && salary.errors }"
+              />
+              <div class="invalid-feedback" *ngIf="salary.errors && f.submitted">
+                <div *ngIf="salary.errors['required']">salary is required</div>
+                <div *ngIf="salary.errors['salary']">
+                  salary must be a valid salary address
+                </div>
+              </div>
+            </div>
+
+
+
+          <div class="form-group">
+          <button type="submit" class="btn btn-primary float-right form-control"style="background-color:cornflowerblue">ADD new Job Post</button>
+          </div>
+          <br/>
+          <div class="alert alert-warning" *ngIf="isSignUpFailed">
+            addition failed!<br />{{ errorMessage }}
+          </div>
+          </form>
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            Your addition is successful!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

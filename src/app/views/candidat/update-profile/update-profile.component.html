@@ -1,5 +1,5 @@
 <div class="update-profile">
-  <h2>Update Profile</h2>
+  <h2>Update :</h2>
   <form action="#" class="update-profile-form">
 <!-- info personnelle -->
 <div class="card-section">
@@ -145,12 +145,12 @@
   </div>
 </div>
 </div>
-
+<h2>Complet Your Professional Information :</h2>
 <!-- Professional Experience Section -->
     <div class="card-section">
       <div class="profile-section">
         <h3>Professional Experience</h3>
-
+       <div *ngFor="let experience of professionalExperiences; let i = index">
           <div class="experience-form">
             <!-- Fields for updating professional experience -->
 
@@ -167,8 +167,8 @@
             <span class="required">*</span>
           </div>
           <hr>
-
-        <button class="btn btn-primary" >Add other Experience</button>
+       </div>
+        <button class="btn btn-primary" (click)=" addExperience()">Add other Experience</button>
       </div>
     </div>
 
@@ -176,7 +176,7 @@
     <div class="card-section">
       <div class="profile-section">
         <h3>Academic Experience</h3>
-
+        <div *ngFor="let experience of academicExperiences ; let i = index">
           <div class="education-form">
             <!-- Fields for updating academic experience -->
             <label for="degree">Degree:</label>
@@ -190,10 +190,10 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" [(ngModel)]="academicExp.description"></textarea>
             <span class="required">*</span>
-
+          </div>
           <hr>
         </div>
-        <button class="btn btn-primary" >Add other Academic Experience</button>
+        <button class="btn btn-primary" (click)="addAcademicExperience()">Add other Academic Experience</button>
       </div>
     </div>
 
@@ -201,7 +201,7 @@
     <div class="card-section">
       <div class="profile-section">
         <h3>Skills</h3>
-
+        <div *ngFor="let skill of skills ; let i = index">
           <div class="skills-form">
 
             <label for="skill-name">Skill Name:</label>
@@ -216,21 +216,21 @@
           </div>
           <hr>
 
-
-        <button class="btn btn-primary" >Add other Skill</button>
-      </div>
-    </div>
-
-    <!-- CV file upload section -->
-    <div class="card-section">
-      <div class="profile-section">
-        <h3>CV File</h3>
-        <div class="cv-upload">
-          <label for="cv-file">Upload CV:</label>
-          <input type="file" id="cv-file" name="cv-file"[(ngModel)]="cvFile">
         </div>
+        <button class="btn btn-primary" (click)="addSkill()">Add other Skill</button>
       </div>
     </div>
+
+    <div class="profile-section">
+      <h3>CV File</h3>
+      <div class="cv-upload">
+        <label for="cv-file">Upload CV:</label>
+        <input type="file" #cvInput id="cv-file" name="cv-file">
+        <button (click)="updateCandidate(cvInput.files[0])">Update CV</button>
+      </div>
+    </div>
+
+
 
     <!-- Submit button -->
     <button type="submit"(click)="onSubmit()" class="btn-update-profile">Update Profile</button>

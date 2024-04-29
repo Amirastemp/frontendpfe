@@ -1,0 +1,17 @@
+<!-- Boucle sur chaque job post pour afficher dans une carte -->
+<div class="container">
+  <div class="row">
+    <div *ngFor="let job of jobs">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"> {{job.title}} </h5>
+            <p class="card-text">Company: {{ job.company }}</p>
+            <p class="card-text">Location:  {{job.location}} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

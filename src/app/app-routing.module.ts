@@ -39,8 +39,15 @@ const routes: Routes = [
         {path:"addemployee",loadChildren:()=>import('./views/admin/employee_mangment/addemployee/addemployee.module').then(m=>m.AddemployeeModule)},
         {path:"employeedetails/:id",loadChildren:()=>import('./views/admin/employee_mangment/employeedetails/employeedetails.module').then(m=>m.EmployeedetailsModule)},
         {path:"updateemployee/:id",loadChildren:()=>import('./views/admin/employee_mangment/updateemployee/updateemployee.module').then(m=>m.UpdateemployeeModule)},
+
         {path:"requests",loadChildren:()=>import('./views/HR/requests/requests.module').then(m=>m.RequestsModule)},
        {path:"planning",loadChildren:()=>import('./views/HR/planning/planning.module').then(m=>m.PlanningModule)},
+
+       {path:"addjobPost",loadChildren:()=>import('./views/HR/jobpostsystem/addjobpost/addjobpost.module').then(m=>m.AddjobpostModule)},
+        {path:"jobPostdetails",loadChildren:()=>import('./views/HR/jobpostsystem/detailsjobpost/detailsjobpost.module').then(m=>m.DetailsjobpostModule)},
+        {path:"updatejobPost",loadChildren:()=>import('./views/HR/jobpostsystem/updatejobpost/updatejobpost.module').then(m=>m.UpdatejobpostModule)},
+        {path:"alljobPost",loadChildren:()=>import('./views/HR/jobpostsystem/alljobpost/alljobpost.module').then(m=>m.AlljobpostModule)},
+
       ]},
       {path:"rh/login",component:AuthRhComponent},
 
