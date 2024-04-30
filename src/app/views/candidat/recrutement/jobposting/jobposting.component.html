@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let job of jobs; let i = index">
       <div class="card">
-          <button class="close-btn" (click)="deleteJob(job._id,i)">&times;</button>
+
 
         <div class="card-body">
           <h5 class="card-title">{{ job.title }}</h5>
@@ -12,13 +12,9 @@
           <div class="status">
 
             <span [ngClass]="{
-              'status-draft': job.status === 'draft',
-              'status-closed': job.status === 'closed',
               'status-open': job.status === 'open'
             }">
               <i class="fas" [ngClass]="{
-                'fa-file': job.status === 'draft',
-                'fa-times-circle': job.status === 'closed',
                 'fa-check-circle': job.status === 'open'
               }"></i>
               {{ job.status }}
@@ -26,7 +22,7 @@
           </div>
           <div class="button-group">
             <button class="btn btn-primary" (click)="navigateTodetails(job._id)">View Details</button>
-            <button class="btn btn-primary" (click)="navigateToUpdate(job._id)">Update Job Post</button>
+            <button class="btn btn-primary" (click)="postuler(job._id)">postuler</button>
           </div>
         </div>
       </div>

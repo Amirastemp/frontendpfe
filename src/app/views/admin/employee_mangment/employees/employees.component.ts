@@ -28,18 +28,17 @@ export class EmployeesComponent implements OnInit{
     }
 
   ngOnInit(): void {
-console.log("nnnnnnn");
     this.authadmin.getEmployees(this.userdata).subscribe((data:any)=>{
-      console.log(data)
+
       this.dataArray=data.users;
-      console.log(this.dataArray);
+
       this.totalPages = Math.ceil(this.dataArray.length / this.pageSize);
         // Update the data for the current page
         this.updatePageData();
 
   })
   this.userRole =this.dataservice.getUser().role
-  console.log(this.userRole);
+
 
   this.routeA.queryParams.subscribe(params => {
     this.selectedUserId = params['id'];

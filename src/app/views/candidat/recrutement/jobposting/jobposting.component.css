@@ -47,18 +47,10 @@
   margin-right: 10px;
 }
 .btn{
-  background-color: cornflowerblue;
+  background-color: #029f5b;
 }
 .status span {
   margin-right: 5px;
-}
-
-.status-draft i {
-  color: yellow;
-}
-
-.status-closed i {
-  color: red;
 }
 
 .status-open i {

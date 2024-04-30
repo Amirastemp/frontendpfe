@@ -21,6 +21,8 @@ import { UpdateProfileComponent } from './views/candidat/update-profile/update-p
 import { AddjobpostComponent } from './views/HR/jobpostsystem/addjobpost/addjobpost.component';
 import { UpdatejobpostComponent } from './views/HR/jobpostsystem/updatejobpost/updatejobpost.component';
 import { AlljobpostComponent } from './views/HR/jobpostsystem/alljobpost/alljobpost.component';
+import { DetailsJobpostingComponent } from './views/candidat/recrutement/details-jobposting/details-jobposting.component';
+
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
@@ -32,6 +34,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     AddjobpostComponent,
     UpdatejobpostComponent,
     AlljobpostComponent,
+    DetailsJobpostingComponent,
+
 
 
 

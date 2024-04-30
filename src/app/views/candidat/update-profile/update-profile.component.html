@@ -130,12 +130,12 @@
         <input
         [(ngModel)]="candidat.address"
         name="address"
-        #Adresss="ngModel"
+        #address="ngModel"
          type="text"
          class="form-control"
          required>
-         <div class="invalid-feedback" *ngIf="Adresss.errors && f.submitted">
-          <div *ngIf="Adresss.errors['required']">Address is required</div>
+         <div class="invalid-feedback" *ngIf="address.errors && f.submitted">
+          <div *ngIf="address.errors['required']">Address is required</div>
 
         </div>
       </div>

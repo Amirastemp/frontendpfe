@@ -63,6 +63,9 @@ const routes: Routes = [
         {path:"dashboard",loadChildren:()=>import('./views/admin/dashboard/dashboard.module').then(m=>m.DashboardModule)},
         {path:"profile",loadChildren:()=>import('./views/candidat/candidat-profile/candidat-profile.module').then(m=>m.CandidatProfileModule)},
         {path:"updateprofile",loadChildren:()=>import('./views/candidat/update-profile/update-profile.module').then(m=>m.UpdateProfileModule)},
+        {path:"jobapplication",loadChildren:()=>import('./views/candidat/recrutement/jobapplication/jobapplication.module').then(m=>m.JobapplicationModule)},
+        {path:"jobposting",loadChildren:()=>import('./views/candidat/recrutement/jobposting/jobposting.module').then(m=>m.JobpostingModule)},
+        {path:"jobPosingdetails",loadChildren:()=>import('./views/candidat/recrutement/details-jobposting/details-jobposting.module').then(m=>m.DetailsJobpostingModule)},
 
     ]}, {path:"candidat/connected",component:AuthCandidatComponent},
 
