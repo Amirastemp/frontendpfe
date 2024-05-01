@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { JobapplicationRoutingModule } from './jobapplication-routing.module';
 import { JobapplicationComponent } from './jobapplication.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { JobapplicationComponent } from './jobapplication.component';
   ],
   imports: [
     CommonModule,
-    JobapplicationRoutingModule
+    JobapplicationRoutingModule,
+    FormsModule
   ]
 })
 export class JobapplicationModule { }

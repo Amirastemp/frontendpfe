@@ -33,29 +33,27 @@
               </div>
             </div>
           </div>
-            <div class="form-group">
-              <label for="description">description</label>
-              <input
-                type="text"
-                class="form-control"
-                name="description"
-                [(ngModel)]="registerjobData.description"
-                required
-                minlength="3"
-                maxlength="20"
-                #description="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
-              />
-              <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
-                <div *ngIf="description.errors['required']">description is required</div>
-                <div *ngIf="description.errors['minlength']">
-                  description must be at least 3 characters
-                </div>
-                <div *ngIf="description.errors['maxlength']">
-                  description must be at most 20 characters
-                </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control"
+              name="description"
+              [(ngModel)]="registerjobData.description"
+              required
+              #description="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+            ></textarea>
+            <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+              <div *ngIf="description.errors['required']">Description is required</div>
+              <div *ngIf="description.errors['minlength']">
+                Description must be at least 3 characters
+              </div>
+              <div *ngIf="description.errors['maxlength']">
+                Description must be at most 20 characters
               </div>
             </div>
+          </div>
+
             <div class="form-group">
               <label for="company">company</label>
               <input

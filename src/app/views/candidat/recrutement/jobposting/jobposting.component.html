@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let job of jobs; let i = index">
-      <div class="card">
+      <div class="card"(mouseenter)="zoomInCard(i)" (mouseleave)="zoomOutCard(i)">
 
 
         <div class="card-body">
@@ -22,7 +22,7 @@
           </div>
           <div class="button-group">
             <button class="btn btn-primary" (click)="navigateTodetails(job._id)">View Details</button>
-            <button class="btn btn-primary" (click)="postuler(job._id)">postuler</button>
+            <button class="btn btn-primary" (click)="postuler(job._id)">Apply</button>
           </div>
         </div>
       </div>

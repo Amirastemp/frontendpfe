@@ -47,6 +47,7 @@ const routes: Routes = [
         {path:"jobPostdetails",loadChildren:()=>import('./views/HR/jobpostsystem/detailsjobpost/detailsjobpost.module').then(m=>m.DetailsjobpostModule)},
         {path:"updatejobPost",loadChildren:()=>import('./views/HR/jobpostsystem/updatejobpost/updatejobpost.module').then(m=>m.UpdatejobpostModule)},
         {path:"alljobPost",loadChildren:()=>import('./views/HR/jobpostsystem/alljobpost/alljobpost.module').then(m=>m.AlljobpostModule)},
+        {path:"candidacy",loadChildren:()=>import('./views/HR/jobapplication/candidature/candidature.module').then(m=>m.CandidatureModule)},
 
       ]},
       {path:"rh/login",component:AuthRhComponent},
@@ -65,7 +66,7 @@ const routes: Routes = [
         {path:"updateprofile",loadChildren:()=>import('./views/candidat/update-profile/update-profile.module').then(m=>m.UpdateProfileModule)},
         {path:"jobapplication",loadChildren:()=>import('./views/candidat/recrutement/jobapplication/jobapplication.module').then(m=>m.JobapplicationModule)},
         {path:"jobposting",loadChildren:()=>import('./views/candidat/recrutement/jobposting/jobposting.module').then(m=>m.JobpostingModule)},
-        {path:"jobPosingdetails",loadChildren:()=>import('./views/candidat/recrutement/details-jobposting/details-jobposting.module').then(m=>m.DetailsJobpostingModule)},
+        {path:"jobPostingdetails",loadChildren:()=>import('./views/candidat/recrutement/details-jobposting/details-jobposting.module').then(m=>m.DetailsJobpostingModule)},
 
     ]}, {path:"candidat/connected",component:AuthCandidatComponent},
 
