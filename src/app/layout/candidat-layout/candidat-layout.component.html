@@ -63,11 +63,42 @@
         <i class="fas fa-exclamation-circle attention-icon" *ngIf="profileCompletion < 100" style="color: red;"></i>
       </div>
 
-          </nav>
 
-      <div class="container ">
+<!-- *****************notification***************************************************************************************** -->
+<!-- Notification icon with click event -->
+<div class="notification-icon right" (click)="toggleMenu()">
+  <i class="fa fa-envelope fa-lg"></i>
+  <!-- Notification counter -->
+  <span class="notification-counter" *ngIf="notifications.length > 0">{{ notifications.length }}</span>
+</div>
+
+
+<!-- Notification menu -->
+<div class="notification-menu shadow" *ngIf="menuOpen">
+  <div class="notification-list" [ngClass]="{'scrollable': notifications.length >= 4}">
+    <div *ngFor="let notification of notifications; let i = index"
+         class="notification-item"
+         [class.selected]="selectedItemIndex === i"
+         (click)="handleNotificationClick(i)">
+
+      <div class="notification-content">
+        <p class="notification-message">
+          Your candidacy {{ notification.title.slice(0, 10) }}{{ notification.title.length > 5 ? '...' : '' }} at {{ notification.date | date: 'medium' }} are {{notification.status}}
+          <i class="material-icons dp48 delete-notification" (click)="deleteNotification(notification)">clear</i>
+        </p>
+        <span class="notification-timer">{{ getTimeElapsed(Date) }}</span>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+  </nav>
+  <div class="container ">
             <router-outlet></router-outlet>
-       </div>
+   </div>
   </div>
 
       <footer class="footer">

@@ -152,7 +152,7 @@ a.sidebar-link {
 .nav-item.dropdown {
   position: absolute;
   right: 120px;
-  cursor: pointer; 
+  cursor: pointer;
   top: 18px;
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
@@ -174,16 +174,9 @@ a.sidebar-link {
   position: absolute;
   top: 18px; /* Adjust top position as needed */
   right: 0; /* Position to the right */
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-.rad-menu-item {
-  /* Add styles for the menu item */
-}
-
-.rad-dropmenu-item {
-  /* Add styles for the dropdown menu */
-}
 
 
 /***********************Notification*****************************/
@@ -192,7 +185,7 @@ a.sidebar-link {
   position: absolute;
   top: 7px; /* Adjust the vertical position according to your layout */
   right: -5px; /* Adjust the horizontal position according to your layout */
-  background-color: cornflowerblue;
+  background-color: #029f5b;
   color: white;
   border-radius: 50%; /* Use 50% to create a circle */
   padding: 2px 6px; /* Adjust padding to adjust the size of the circle */
@@ -207,6 +200,7 @@ a.sidebar-link {
   position: absolute;
   padding: 5px 9px;
   top: 16px;
+  color: cornflowerblue;
   right: 60px; /* Position the icon on the right */
   cursor: pointer; /* Add a cursor to indicate it's clickable */
 }
@@ -288,3 +282,6 @@ a.sidebar-link {
   max-height: 200px; /* Choisissez la hauteur maximale appropriée */
   overflow-y: auto;
 }
+
+
+/*************************Background***********************************************/

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { AuthcandidatService } from 'src/app/views/service/authcandidat.service';
 import { DataService } from 'src/app/views/service/data.service';
 import { JobserviceService } from 'src/app/views/service/jobservice.service';
+import { SocketServiceService } from 'src/app/views/service/socket-service.service';
 
 @Component({
   selector: 'app-candidature',
@@ -14,7 +15,8 @@ import { JobserviceService } from 'src/app/views/service/jobservice.service';
   candidatinfo: any = {};
   jobpost: any = {};
   candidat:any={};
-  constructor(private jobservice: JobserviceService, private authcandidat: AuthcandidatService,private datas:DataService) { }
+  constructor(private jobservice: JobserviceService, private authcandidat: AuthcandidatService,
+    private datas:DataService,private el: ElementRef,private socketService:SocketServiceService) { }
 
   ngOnInit(): void {
     this.getAllApplications();
@@ -55,12 +57,14 @@ import { JobserviceService } from 'src/app/views/service/jobservice.service';
     // Mettre à jour le statut de la demande en 'Approved'
     item.status = 'Approved';
     this.updateRequestStatus(item);
+    this.socketService.emitNewRequest(item);
   }
 
   rejected(item: any): void {
     // Mettre à jour le statut de la demande en 'Rejected'
     item.status = 'Rejected';
     this.updateRequestStatus(item);
+    this.socketService.emitNewRequest(item);
   }
 
   // Méthode pour mettre à jour le statut de la demande dans la base de données
@@ -79,3 +83,6 @@ import { JobserviceService } from 'src/app/views/service/jobservice.service';
 
 
 }
+
+
+

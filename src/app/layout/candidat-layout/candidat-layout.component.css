@@ -107,8 +107,8 @@ a.sidebar-link {
 /***************************connexion*********************************/
 .nav-item.dropdown {
   position: absolute;
-  right: 0;
-  cursor: pointer; 
+  right: 60px;
+  cursor: pointer;
   top: 18px;
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
@@ -124,3 +124,105 @@ a.sidebar-link {
   margin-top: 0px; /* Adjust the top margin of the username */
   font-size: 14px; /* Adjust the font size of the username */
 }
+/*********************notification***************************************/
+.notification-icon {
+  position: absolute;
+  padding: 5px 9px;
+  color: #029f5b;
+  top: 16px;
+  right: 10px; /* Position the icon on the right */
+  cursor: pointer; /* Add a cursor to indicate it's clickable */
+}
+.notification-counter {
+  position: absolute;
+  top: 7px; /* Adjust the vertical position according to your layout */
+  right: -5px; /* Adjust the horizontal position according to your layout */
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 50%; /* Use 50% to create a circle */
+  padding: 2px 6px; /* Adjust padding to adjust the size of the circle */
+  font-size: 12px; /* Adjust font size as needed */
+}
+
+.notification-icon i {
+  font-size: 24px; /* Adjust the size of the icon as needed */
+}
+
+/**************************notification menu*******/
+.notification-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 999;
+  background-color: #fff; /* Change the background color */
+  border: 1px solid #ccc; /* Change the border color */
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Change the box shadow */
+}
+
+.notification-list {
+  max-height: 300px; /* Change the maximum height */
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add transition effect */
+  background-color: rgb(215, 223, 238); /* Couleur de fond par défaut */
+}
+
+
+.notification-item.selected {
+  background-color: white; /* Couleur de fond pour les éléments sélectionnés et survolés */
+}
+
+
+.notification-content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; /* Afficher les éléments en colonne */
+}
+
+.notification-message {
+  margin: 0;
+}
+.notification-timer {
+  color: #999; /* Changer la couleur du texte */
+  font-size: 12px; /* Changer la taille de la police */
+  font-style: italic; /* Mettre en italique */
+  margin-left: 10px; /* Ajuster la marge gauche */
+}
+
+.notification-message,
+.notification-timer {
+  display: block; /* Afficher chaque élément sur une nouvelle ligne */
+}
+
+.delete-notification {
+  cursor: pointer; /* Curseur indiquant que l'icône est cliquable */
+  color: cornflowerblue; /* Couleur de l'icône */
+  margin-left: 5px; /* Marge à gauche pour séparer l'icône du message */
+}
+
+.delete-notification:hover {
+  color: darkred; /* Changement de couleur au survol */
+}
+
+.delete-notification:active {
+  transform: scale(0.9); /* Réduire légèrement la taille lors du clic */
+}
+
+
+.notification-divider {
+  /* margin: 10px 0;
+  border: none; */
+  border-top: 1px solid #6c6b6b; /* Change the border color */
+}
+
+.scrollable {
+  max-height: 200px; /* Choisissez la hauteur maximale appropriée */
+  overflow-y: auto;
+}
+
+

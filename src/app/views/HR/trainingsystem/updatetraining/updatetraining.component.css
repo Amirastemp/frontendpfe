@@ -1,0 +1,18 @@
+.card-header{
+  color: cornflowerblue;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.btn{
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.profile-section input[type="text"],
+.profile-section input[type="date"],
+.profile-section textarea,
+.profile-section select {
+  border-color: cornflowerblue;
+
+}

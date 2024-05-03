@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let training of trainingData; let i = index">
+      <div class="card"(mouseenter)="zoomInCard(i)" (mouseleave)="zoomOutCard(i)">
+
+          <button class="close-btn" (click)="deletetraining(training._id,i)">&times;</button>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ training.title}}</h5>
+          <p class="card-text">From {{ training.startDate.split("T")[0] }} To {{ training.endDate.split("T")[0] }}
+           </p>
+            <p class="card-text">At {{ training.startDate.split("T")[1].split(".")[0] }}  To  {{ training.endDate.split("T")[1].split(".")[0] }}</p>
+            <p class="card-text">With Mr: {{ training.Nameoftrainner }}</p>
+            <p class="card-text">Location: {{ training.location }}</p>
+          <p class="card-text">duration: {{ training.duration }} h</p>
+          <div class="status">
+
+            <span [ngClass]="{
+              'status-draft': training.status === 'draft',
+              'status-closed': training.status === 'closed',
+              'status-open': training.status === 'open'
+            }">
+              <i class="fas" [ngClass]="{
+                'fa-file': training.status === 'draft',
+                'fa-times-circle': training.status === 'closed',
+                'fa-check-circle': training.status === 'open'
+              }"></i>
+              {{ training.status }}
+            </span>
+          </div>
+          <div class="button-group">
+            <button class="btn btn-primary" (click)="navigateTodetails(training._id)">View Details</button>
+            <button class="btn btn-primary" (click)="navigateToUpdate(training._id)">Update training</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

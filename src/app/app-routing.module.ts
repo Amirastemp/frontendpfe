@@ -49,6 +49,12 @@ const routes: Routes = [
         {path:"alljobPost",loadChildren:()=>import('./views/HR/jobpostsystem/alljobpost/alljobpost.module').then(m=>m.AlljobpostModule)},
         {path:"candidacy",loadChildren:()=>import('./views/HR/jobapplication/candidature/candidature.module').then(m=>m.CandidatureModule)},
 
+
+        {path:"schedule",loadChildren:()=>import('./views/HR/trainingsystem/schedule/schedule.module').then(m=>m.ScheduleModule)},
+        {path:"updatetraining",loadChildren:()=>import('./views/HR/trainingsystem/updatetraining/updatetraining.module').then(m=>m.UpdatetrainingModule)},
+        {path:"alltraining",loadChildren:()=>import('./views/HR/trainingsystem/alltraining/alltraining.module').then(m=>m.AlltrainingModule)},
+        {path:"trainingdetails",loadChildren:()=>import('./views/HR/trainingsystem/trainingdetails/trainingdetails.module').then(m=>m.TrainingdetailsModule)},
+
       ]},
       {path:"rh/login",component:AuthRhComponent},
 

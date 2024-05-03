@@ -26,12 +26,9 @@
                   <td>{{ jobpost.data.title}}</td>
                   <td>{{ item.appliedAt }}</td>
                   <td>
-                    <i class="fas fa-times fa-fw text-danger mr-4 cursor-pointer" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }" (click)="rejected(item)"></i>
-                    <i class="fas fa-check fa-fw text-success cursor-pointer" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }" (click)="approved(item)"></i>
+                    <i class="fas fa-times fa-fw text-danger mr-4 cursor-pointer" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }"  (click)="rejected(item)"></i>
+                    <i class="fas fa-check fa-fw text-success cursor-pointer" [ngClass]="{ 'disabled-icon': item.status === 'Approved' || item.status === 'Rejected' }"  (click)="approved(item)"></i>
                   </td>
-
-
-
                 </tr>
               </ng-container>
             </tbody>

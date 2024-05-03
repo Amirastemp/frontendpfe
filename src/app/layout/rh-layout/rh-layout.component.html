@@ -5,9 +5,10 @@
           <div class="sidebar-logo">
               <a>
                 <div class="sidebar-brand-icon rotate-n-15"style="text-align:margin-left;">
-                <i class="fas fa-laugh-wink" ></i></div>
+                  <img src="../../../assets/images/1.png" style="height:100px;width: 100px;" alt="logo" class="mb-30">
                 <div class="sidebar-brand-text mx-3" style="text-align: center;">
                   Dashboar HR
+                </div>
                 </div>
                </a>
           </div>
@@ -104,6 +105,40 @@
                Candidacy
             </a>
            </li>
+           <li class="sidebar-item">
+            <a class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" aria-expanded="false">
+              <i class="fas fa-dumbbell pe-2"></i><!-- Utilisation de l'icône "briefcase" pour représenter une offre d'emploi -->
+              Training
+            </a>
+            <ul id="pages" class="sidebar-dropdown list-unstyled collapse"  data-bs-parent="#sidebar">
+              <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+                <a href="/rh/schedule" routerLink="/rh/schedule" class="sidebar-link">
+                  <i class="fas fa-book pe-2"></i> <!-- Utilisation de l'icône "plus-circle" pour ajouter une offre d'emploi -->
+                  Add Training
+                </a>
+
+            </li>
+            <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+              <a href="/rh/trainingdetails" routerLink="/rh/trainingdetails" class="sidebar-link">
+                  <i class="fa-solid fa-info-circle pe-2"></i> <!-- Different icon class -->
+                  Training Details
+              </a>
+            </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/rh/alltraining" routerLink="/rh/alltraining" class="sidebar-link">
+              <i class="fas fa-list-alt pe-2"></i> <!-- Utilisation de l'icône "list-alt" pour afficher toutes les offres d'emploi -->
+              All training
+            </a>
+
+           </li>
+           <li class="sidebar-item" style="border-bottom: 5px solid #f5f8f9;">
+            <a href="/rh/updatetraining" routerLink="/rh/updatetraining" class="sidebar-link">
+              <i class="fas fa-edit pe-2"></i> <!-- Utilisation de l'icône "edit" pour mettre à jour une offre d'emploi -->
+              Update Training
+            </a>
+           </li>
+           </ul>
+          </li>
       </ul>
     </div>
   </aside>
@@ -146,7 +181,7 @@
    <div class="notification-icon right"  (click)="toggleMenu()">
   <i class="fa fa-bell"></i>
   <!-- Notification counter -->
-  <span class="notification-counter">{{ notifications.length }}</span>
+  <span class="notification-counter"  *ngIf="notifications.length > 0">{{ notifications.length }}</span>
 </div>
 
    <div class="notification-menu shadow" *ngIf="menuOpen">
@@ -192,9 +227,9 @@
 </div>
 
 </nav>
-       <div class="container ">
+     <div class="container ">
           <router-outlet></router-outlet>
-       </div>
+      </div>
      </div>
 
       <footer class="footer">

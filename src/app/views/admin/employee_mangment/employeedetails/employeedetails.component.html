@@ -1,37 +1,22 @@
 <div class="container">
-    <header class="jumbotron">
-      <h3>
-        <strong>{{ dataObject.userName }}</strong>
-      </h3>
-    </header>
-    <p>
-      <strong>Name:</strong>
-      {{ dataObject.firstName }}
-  {{dataObject.lastName}}
-  </p>
-    <strong>Email:</strong>
-    <ul>
-      <li>
-        {{ dataObject.email }}
-      </li>
-    </ul>
-    <strong>phone:</strong>
-    <ul>
-      <li>
-        {{ dataObject.phone}}
-      </li>
-    </ul>
-    <strong>Address:</strong>
-    <ul>
-      <li>
-        {{ dataObject.address }}
-      </li>
-    </ul>
-    <strong>Roles:</strong>
-    <ul>
-      <li>
-        {{ dataObject.role }}
-      </li>
-    </ul>
+  <div class="row ">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">{{ dataObject.userName }}</h3>
+        </div>
+        <div class="card-body">
+          <p><strong>Name :</strong> {{ dataObject.firstName }} {{ dataObject.lastName }}</p>
+          <p><strong>Email :</strong> {{ dataObject.email }}</p>
+          <p><strong>Phone :</strong> {{ dataObject.phone }}</p>
+          <p><strong>Address :</strong> {{ dataObject.address }}</p>
+          <p><strong>Description :</strong>{{dataObject.description}}</p>
+
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+
 

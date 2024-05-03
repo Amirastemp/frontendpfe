@@ -1,14 +1,18 @@
 <div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h2>{{ jobPostDetails.title }}</h2>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{ jobPostDetails.company }}</h5>
-      <p class="card-text">Location: {{ jobPostDetails.location }}</p>
-      <p class="card-text">Salary: {{ jobPostDetails.salary }}</p>
-      <p class="card-text">Description: {{ jobPostDetails.description }}</p>
-      <!-- Ajoutez d'autres détails de la publication d'emploi au besoin -->
+  <div class="row ">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+         <h2 class="titre"> {{ jobPostDetails.title }}</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text"> Description :{{ jobPostDetails.description }}</p>
+          <p class="card-text"> Company :{{ jobPostDetails.company }}</p>
+          <p class="card-text">Location: {{ jobPostDetails.location }}</p>
+          <p class="card-text">Salary: {{ jobPostDetails.salary }}DNT</p>
+          <!-- Ajoutez d'autres détails de la publication d'emploi au besoin -->
+        </div>
+      </div>
     </div>
   </div>
 </div>

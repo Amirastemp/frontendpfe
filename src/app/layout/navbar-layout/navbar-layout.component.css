@@ -1,14 +1,36 @@
 
 .navbar{
-  background-color: rgb(88, 86, 88);
+  background-color: rgba(0, 0, 0, 0.5); /* Using rgba for transparency */
+  backdrop-filter: blur(5px); /* Adding blur effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow for better visibility */
+
   margin-top: -10px;
+  height: 20%;
+
 }
+.navbar-nav {
+  margin-left: auto; /* Déplace tous les éléments vers la droite */
+
+}
+.nav-item a.nav-link {
+  font-size: 20px;
+  color: #ffffff; /* Changer la couleur du texte en blanc */
+  transition: color 0.3s ease; /* Ajouter une transition de couleur pour une animation fluide */
+}
+
+.nav-item a.nav-link:hover {
+  color: rgb(124, 93, 16); /* Changer la couleur du texte au survol */
+  font-size: 30px;
+}
+
 
 .dropdown .dropbtn {
   font-size: 16px;
+  margin-left: 100px;
   border: none;
+  right: 200px;
   outline: none;
-  color: rgb(97, 44, 79);
+  color:rgb(132, 100, 20);
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -18,25 +40,48 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+
+  background-color: rgba(0, 0, 0, 0); /* Using rgba for transparency */
+  backdrop-filter: blur(5px); /* Adding blur effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow for better visibility */
+
+
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(29, 7, 203, 0.2);
   z-index: 1;
+  border-radius: 10px;
 }
 
 .dropdown-content a {
   float: none;
-  color: rgba(128, 123, 123, 0.301);
+  color: rgb(16, 16, 16);
   padding: 8px 16px;
   text-decoration: none;
   display: block;
   text-align: left;
+  border-radius: 10px;
 }
 
 .dropdown-content a:hover {
-  background-color: #aa8383;
+  background-color: rgb(124, 93, 16);
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  flex: 1; /* Le champ de recherche occupera tout l'espace disponible */
+}
+
+.btn {
+  margin-left: 10px; /* Marge à gauche du bouton */
+  margin-right: 10px;
+
+  background-color: rgb(130, 101, 27);
+}
+

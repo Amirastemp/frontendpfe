@@ -26,7 +26,7 @@ export class PlanningComponent implements OnInit {
       right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth,resourceTimelineYear'
     },
     initialView: 'resourceTimelineDay',
-  
+
     views: {
       resourceTimelineDay:{
         slotMinTime: '08:00', // Début de la journée
@@ -39,11 +39,11 @@ export class PlanningComponent implements OnInit {
           businessHours: {
             // days of week. an array of zero-based day of week integers (0=Sunday)
             daysOfWeek: [ 1, 2, 3, 4 ,5], // Monday - Thursday
-          
+
             startTime: '10:00', // a start time (10am in this example)
             endTime: '18:00', // an end time (6pm in this example)
           }
-    
+
       },
       resourceTimelineMonth: {
         columnHeaderFormat: {
@@ -59,37 +59,37 @@ export class PlanningComponent implements OnInit {
     resources: [],
     events: []
   };
-  
+
 
   constructor(private changeDetector: ChangeDetectorRef,private conge : CongéService, private auth:AuthemployeeService , private datas:DataService ) {
   }
   ngOnInit(): void {
-    
+
     this.auth.request().subscribe(
       (data: any[]) => {
         const observables = data.map((item: any) => this.datas.getUserById(item.id_emp));
-  
+
         forkJoin(observables).subscribe(
           (users: any[]) => {
             this.calendarOptions.resources = users.map(user => ({
-              id:user._id , 
+              id:user._id ,
               title: user.userName
             })
             );
-  
+
             this.calendarOptions.events = data.map(item => {
-  
+
               return {
                 resourceId: item.id_emp,
                 start: item.startDate,
                 end: item.endDate,
                 title: item.cause,
                 color:this.getColor(item.cause),
-                
-                
+
+
               };
             });
-  
+
             this.changeDetector.detectChanges();
             console.log(this.calendarOptions.resources );
             console.log(this.calendarOptions.events);
@@ -111,7 +111,7 @@ export class PlanningComponent implements OnInit {
       return 'green'
     }return 'yellow'
   }
-  
+
   handleCalendarToggle() {
     this.calendarVisible = !this.calendarVisible;
   }
@@ -121,7 +121,7 @@ export class PlanningComponent implements OnInit {
     calendarOptions.weekends = !calendarOptions.weekends;
   }
 
-  
+
 
 
 }

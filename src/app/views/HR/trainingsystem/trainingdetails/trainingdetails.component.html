@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+         <h2 class="titre"> {{ trainingData.title }}</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text"> Description :{{ trainingData.description }}</p>
+          <p class="card-text">With Mr :{{ trainingData.Nameoftrainner }}</p>
+          <p class="card-text">Location: {{ trainingData.location }}</p>
+          <p class="card-text">Duration: {{ trainingData.duration }}</p>
+          <p class="card-text">From {{ trainingData.startDate.split("T")[0] }} To {{ trainingData.endDate.split("T")[0] }}
+          </p>
+           <p class="card-text">At {{ trainingData.startDate.split("T")[1].split(".")[0] }}  To  {{ trainingData.endDate.split("T")[1].split(".")[0] }}</p>
+
+          <p class="card-text">Price: {{ trainingData.Price }}DNT</p>
+          <!-- Ajoutez d'autres détails de la publication d'emploi au besoin -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

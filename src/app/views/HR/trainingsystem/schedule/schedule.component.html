@@ -1,0 +1,173 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h3 class="debut mb-0 text-center ">  Schedule training </h3>
+      </div>
+      <div class="card-body">
+        <form class="form"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate>
+        <div class="form-group">
+          <label for="title">Title :</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            [(ngModel)]="scheduleData.title"
+
+
+            #title="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && title.errors }"
+          />
+          <div class="invalid-feedback" *ngIf="title.errors && f.submitted">
+            <div *ngIf="title.errors['required']">title is required</div>
+            <div *ngIf="title.errors['minlength']">
+              title must be at least 3 characters
+            </div>
+            <div *ngIf="title.errors['maxlength']">
+              title must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            class="form-control"
+            name="description"
+            [(ngModel)]="scheduleData.description"
+            required
+            #description="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+          ></textarea>
+          <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+            <div *ngIf="description.errors['required']">Description is required</div>
+            <div *ngIf="description.errors['minlength']">
+              Description must be at least 3 characters
+            </div>
+            <div *ngIf="description.errors['maxlength']">
+              Description must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Nameoftrainner">Name of Trainner :</label>
+          <input
+            class="form-control"
+            name="Nameoftrainner"
+            [(ngModel)]="scheduleData.Nameoftrainner"
+            required
+            #Nameoftrainner="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && Nameoftrainner.errors }"
+          >
+          <div class="invalid-feedback" *ngIf="Nameoftrainner.errors && f.submitted">
+            <div *ngIf="Nameoftrainner.errors['required']">Nameoftrainner is required</div>
+            <div *ngIf="Nameoftrainner.errors['minlength']">
+              Nameoftrainner must be at least 3 characters
+            </div>
+            <div *ngIf="Nameoftrainner.errors['maxlength']">
+              Nameoftrainner must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="startDate">startDate</label>
+          <input
+          type="datetime-local"
+            class="form-control"
+            name="startDate"
+            [(ngModel)]="scheduleData.startDate"
+
+            minlength="3"
+            maxlength="20"
+            #startDate="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && startDate.errors }"
+          />
+          <div class="invalid-feedback" *ngIf="startDate.errors && f.submitted">
+            <div *ngIf="startDate.errors['required']">startDate is required</div>
+            <div *ngIf="startDate.errors['minlength']">
+              startDate must be au format jj-mm-aaaa
+            </div>
+          </div>
+        </div>
+          <div class="form-group">
+            <label for="endDate">endDate</label>
+            <input
+            type="datetime-local"
+              class="form-control"
+              name="endDate"
+              [(ngModel)]="scheduleData.endDate"
+
+
+              #endDate="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && endDate.errors }"
+            />
+            <div class="invalid-feedback" *ngIf="endDate.errors && f.submitted">
+              <!-- <div *ngIf="endDate.errors['required']">endDate is required</div> -->
+              <div *ngIf="endDate.errors['minlength']">
+                endDate must be au format jj-mm-aaaa
+              </div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="location">Duration :</label>
+            <input
+              type="number"
+              class="form-control"
+              name="duration"
+              [(ngModel)]="scheduleData.duration"
+
+              #duration="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && duration.errors }"
+            />
+            <div class="invalid-feedback" *ngIf="duration.errors && f.submitted">
+              <div *ngIf="duration.errors['required']">duration is required</div>
+              <div *ngIf="duration.errors['minlength']">
+                duration must be at least 3 characters
+              </div>
+              <div *ngIf="duration.errors['maxlength']">
+                duration must be at most 20 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="duration">Location :</label>
+            <input
+              type="text"
+              class="form-control"
+              name="location"
+              [(ngModel)]="scheduleData.location"
+
+              minlength="3"
+              maxlength="20"
+              #location="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && location.errors }"
+            />
+            <div class="invalid-feedback" *ngIf="location.errors && f.submitted">
+              <div *ngIf="location.errors['required']">location is required</div>
+              <div *ngIf="location.errors['minlength']">
+                location must be at least 3 characters
+              </div>
+              <div *ngIf="location.errors['maxlength']">
+                location must be at most 20 characters
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="form-group">
+        <button  type="submit" class="btn btn-coral float-right form-control">ADD_Request</button>
+        </div>
+        <br/>
+
+        </form>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your request is successful!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

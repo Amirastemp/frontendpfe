@@ -1,0 +1,71 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+}
+
+.close-btn:focus {
+  outline: none;
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-group button {
+  flex: 1;
+  margin-right: 10px;
+}
+.btn{
+  background-color: cornflowerblue;
+}
+.status span {
+  margin-right: 5px;
+}
+
+.status-draft i {
+  color: yellow;
+}
+
+.status-closed i {
+  color: red;
+}
+
+.status-open i {
+  color: green;
+}
+

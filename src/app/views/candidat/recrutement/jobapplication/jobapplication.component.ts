@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobserviceService } from 'src/app/views/service/jobservice.service';
+import { SocketServiceService } from 'src/app/views/service/socket-service.service';
 
 @Component({
   selector: 'app-jobapplication',
@@ -10,7 +11,7 @@ import { JobserviceService } from 'src/app/views/service/jobservice.service';
 export class JobapplicationComponent implements OnInit {
   jobapp:any={}
   jobapplicationId='';
-  constructor(private route: ActivatedRoute, private jobService: JobserviceService,private router : Router) { }
+  constructor(private route: ActivatedRoute, private jobService: JobserviceService,private router : Router,private socketService:SocketServiceService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -21,6 +22,7 @@ export class JobapplicationComponent implements OnInit {
   submitJobApplication(){
     this.jobService.addjobapplication(this.jobapp).subscribe((data:any)=>{
       this.jobapp=data;
+      this.socketService.emitNewRequest(data);
       console.log(this.jobapp);
     })
   }

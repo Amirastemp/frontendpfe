@@ -24,12 +24,12 @@ export class AddemployeeComponent implements OnInit  {
 
 
   onSubmit(): void {
-    const { firstName, lastName, userName, email, password, phone, active} = this.registerUserData;
+    const { firstName, lastName, userName, description,email, password, phone, active} = this.registerUserData;
 
     // Check if the checkbox is checked or unchecked
     const isActivated = active; // true if checked, false if unchecked
 
-    this._auth.registerEmployee({ firstName, lastName, userName, email, password, phone, active: isActivated }).subscribe({
+    this._auth.registerEmployee({ firstName, lastName, userName,description, email, password, phone, active: isActivated }).subscribe({
 
       next: (data: any) => {
 
@@ -47,7 +47,7 @@ export class AddemployeeComponent implements OnInit  {
         }else if (this.userRole=='admin'){
           this._router.navigate(['/admin/employees']);
         }
-        
+
       },
       error: (err: any) => {
         this.errorMessage = err.error.message;

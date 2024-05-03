@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+.home-cover {
+  background-image: url('https://source.unsplash.com/1920x1080/?humain ressorces');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Utilisez la hauteur de la fenêtre pour couvrir toute la page */
+}

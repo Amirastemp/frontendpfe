@@ -34,18 +34,18 @@ export class RHLayoutComponent implements OnInit {
       this.datas.getUserById(notification.requestData.id_emp).subscribe((user: any) => {
         // Créer une nouvelle instance de Notification pour chaque notification
         const newNotification = new Notification(user.userName, notification.requestData.createdAt, notification.requestData.cause);
-      
-        
+
+
         // Ajouter le nom de l'utilisateur et la date de mise à jour à la nouvelle notification
         newNotification.userName = user.userName;
         newNotification.date = notification.requestData.createdAt;
         newNotification.cause = notification.requestData.cause;
-  
+
         // Ajouter la nouvelle notification à la liste des notifications
         this.notifications.push(newNotification);
       });
     });
-  
+
   this.user=this.datas.getUser();
   console.log(this.user);
   this.username=this.user.username;
@@ -78,7 +78,7 @@ getTimeElapsed(notificationDate: Date): string {
   }
 }
 
-/************************************************************************* */
+/******************************notification******************************************* */
 // Déclarer une variable pour stocker l'indice de l'élément sélectionné
 selectedItemIndex: number = -1;
 

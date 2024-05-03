@@ -1,5 +1,6 @@
 .text-gray-900 {
-  color: black; /* Set the color of the text to black */
+  background-color: rgb(171, 148, 28); /* Set the color of the text to black */
+  color: white;
 }
 
 .text-gray-900.mb-4 {
@@ -9,3 +10,18 @@
 .text-white {
   color: white; /* Set the color of the text to white */
 }
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+.container {
+  background-image: url('https://source.unsplash.com/1920x1080/?business');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Utilisez la hauteur de la fenêtre pour couvrir toute la page */
+}
+.card{
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0); /* Using rgba for transparency */
+  backdrop-filter: blur(5px); /* Adding blur effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow for better visibility */
+
+}
+
