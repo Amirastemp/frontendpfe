@@ -63,6 +63,8 @@ const routes: Routes = [
         {path:"requests",loadChildren:()=>import('./views/employee/request/request.module').then(m=>m.RequestModule)},
         {path:"addrequest",loadChildren:()=>import('./views/employee/addrequest/addrequest.module').then(m=>m.AddrequestModule)},
         {path:"updaterequest/:id",loadChildren:()=>import('./views/employee/updaterequest/updaterequest.module').then(m=>m.UpdaterequestModule)},
+        {path:"profile",loadChildren:()=>import('./views/employee/profile/profile.module').then(m=>m.ProfileModule)},
+        {path:"updateprofile",loadChildren:()=>import('./views/employee/updateprofile/updateprofile.module').then(m=>m.UpdateprofileModule)},
       ]},
       {path:"employee/login",component:AuthEmployeeComponent},
 

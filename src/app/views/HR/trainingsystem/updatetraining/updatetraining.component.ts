@@ -15,12 +15,13 @@ export class UpdatetrainingComponent implements OnInit{
     this.route.queryParams.subscribe(params => {
       this.trainingId = params['id']; // Récupérer l'ID de la publication d'emploi à partir des paramètres de l'URL
       console.log(this.trainingId);
-
+this.gettraining();
     });
   }
   gettraining(): void {
     this.trainingService.gettraining(this.trainingId).subscribe((data: any) => {
-      this.trainingData = data.schedule; // Affecter les données récupérées aux détails de la publication d'emploi
+      console.log(data);
+    this.trainingData = data.training; // Affecter les données récupérées aux détails de la publication d'emploi
     });}
   onsubmit(){
     this.trainingService.updatetraining(this.trainingId,this.trainingData).subscribe((data:any)=>{

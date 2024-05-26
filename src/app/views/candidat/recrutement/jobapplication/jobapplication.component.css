@@ -12,7 +12,7 @@
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 5px;
-  
+
 }
 
 .job-application-form .form-group {
@@ -25,6 +25,8 @@
 }
 
 .job-application-form input[type="text"],
+.job-application-form input[type="file"],
+.job-application-form select,
 .job-application-form textarea {
   width: 100%;
   padding: 10px;
@@ -33,7 +35,9 @@
   border-color: #029f5b;
 }
 .job-application-form input[type="text"],
-.job-application-form textarea :focus{
+.job-application-form input[type="file"],
+.job-application-form textarea,
+.job-application-form select :focus{
   border-color: #029f5b;
 }
 

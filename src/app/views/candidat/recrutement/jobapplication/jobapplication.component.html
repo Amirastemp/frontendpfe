@@ -1,16 +1,27 @@
 <div class="job-application-form border">
   <h2>Apply for a position</h2>
   <form (submit)="submitJobApplication()">
+      <div class="form-group">
+        <label for="jobPostName">Name of the post:</label>
+        <input type="text" id="jobPostName" name="jobPostName" [(ngModel)]="jobapp.jobPostName" required>
+      </div>
     <div class="form-group">
-      <label for="jobPostId">ID du poste:</label>
-      <input type="text" id="jobPostId" name="jobPostId" [(ngModel)]="jobapp.jobPostId" required>
+      <label for="fromWhere">How did you hear about us?</label>
+      <select id="fromWhere" name="fromWhere" [(ngModel)]="jobapp.fromWhere" required>
+        <option value="">Select an option</option>
+        <option value="facebook">Facebook</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="friends">Friends</option>
+        <option value="website">Website</option>
+        <option value="other">Other</option>
+      </select>
     </div>
     <div class="form-group">
-      <label for="candidateId">ID du candidat:</label>
-      <input type="text" id="candidateId" name="candidateId" [(ngModel)]="jobapp.candidateId" required>
+      <label for="cvFile">Upload CV:</label>
+      <input type="file" id="cvFile" name="cvFile" (change)="handleFileInput($event, 'cvFile')" required>
     </div>
     <div class="form-group">
-      <label for="coverLetter">Lettre de motivation:</label>
+      <label for="coverLetter">Cover Letter:</label>
       <textarea id="coverLetter" name="coverLetter" [(ngModel)]="jobapp.coverLetter" rows="5" required></textarea>
     </div>
     <button type="submit">Apply</button>

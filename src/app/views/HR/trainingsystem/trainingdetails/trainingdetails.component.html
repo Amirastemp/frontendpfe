@@ -6,10 +6,10 @@
          <h2 class="titre"> {{ trainingData.title }}</h2>
         </div>
         <div class="card-body">
-          <p class="card-text"> Description :{{ trainingData.description }}</p>
-          <p class="card-text">With Mr :{{ trainingData.Nameoftrainner }}</p>
-          <p class="card-text">Location: {{ trainingData.location }}</p>
-          <p class="card-text">Duration: {{ trainingData.duration }}</p>
+          <p class="card-text"> <strong>Description:</strong>{{ trainingData.description }}</p>
+          <p class="card-text"><strong> With Mr:</strong> {{ trainingData.Nameoftrainner }}</p>
+          <p class="card-text"><strong>Location:</strong>  {{ trainingData.location }}</p>
+          <p class="card-text"><strong>Duration:</strong>  {{ trainingData.duration }} H </p>
           <p class="card-text">From {{ trainingData.startDate.split("T")[0] }} To {{ trainingData.endDate.split("T")[0] }}
           </p>
            <p class="card-text">At {{ trainingData.startDate.split("T")[1].split(".")[0] }}  To  {{ trainingData.endDate.split("T")[1].split(".")[0] }}</p>

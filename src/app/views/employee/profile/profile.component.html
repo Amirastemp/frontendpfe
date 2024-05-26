@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <span class="status-indicator" [ngClass]="{'active': employee.active, 'inactive': !employee.active}"></span>
+    <div class="profile-header-text">
+      <h2>{{ employee.firstName }} {{ employee.lastName }}</h2>
+      <p class="profile-username">@{{ employee.userName }}</p>
+    </div>
+  </div>
+  <div class="profile-info">
+    <div class="profile-picture">
+      <img [src]="'http://127.0.0.1:3000/getimage/' + employee.image" alt="Profile Picture">
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+      <p><strong>Phone:</strong> {{ employee.phone }}</p>
+      <p><strong>Address:</strong> {{ employee.address }}</p>
+    </div>
+    <div class="profile-details">
+      <p><strong>Description:</strong> {{ employee.description }}</p>
+      <p><strong>Hiring Date:</strong> {{ employee.hiring_date | date }}</p>
+    </div>
+  </div>
+  <div class="profile-actions">
+    <button class="btn btn-primary" (click)="updateProfile()">Modify Your Profile</button>
+  </div>
+</div>
+
+
+
+
+
+

@@ -59,7 +59,7 @@
       </form>
       <div class="nav-item dropdown no-arrow ml-5" routerLink="/candidat/profile">
         <p class="userName">{{ username }}</p>
-        <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
+        <img class="img-profile rounded-circle small-profile-photo" [src]="'http://127.0.0.1:3000/getimage/'+image" alt="User Photo">
         <i class="fas fa-exclamation-circle attention-icon" *ngIf="profileCompletion < 100" style="color: red;"></i>
       </div>
 

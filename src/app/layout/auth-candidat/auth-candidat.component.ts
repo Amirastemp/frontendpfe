@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthcandidatService } from 'src/app/views/service/authcandidat.service';
@@ -43,8 +44,29 @@ export class AuthCandidatComponent implements OnInit {
       }
     });
   }
+  handleFileInput(event: Event, fileType: string) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const image = input.files[0];
+      if (fileType === 'image') {
+        this.registerUserData.image = image;
+      }
+    }
+  }
   onRegister():void{
-    this.authcandidat.register(this.registerUserData).subscribe({
+    const formData = new FormData();
+    formData.append('email', this.registerUserData.email);
+    formData.append('password', this.registerUserData.password);
+    formData.append('firstName', this.registerUserData.firstName);
+    formData.append('lastName', this.registerUserData.lastName);
+    formData.append('userName', this.registerUserData.userName);
+    formData.append('description', this.registerUserData.description);
+    formData.append('phone', this.registerUserData.phone.toString());
+    formData.append('address', this.registerUserData.address);
+    if (this.registerUserData.image) {
+      formData.append('image', this.registerUserData.image);
+    }
+    this.authcandidat.register(formData).subscribe({
       next: (data:any) => {
         console.log('register successful:', data);
         localStorage.setItem('Token',data.accessToken);
@@ -59,7 +81,6 @@ export class AuthCandidatComponent implements OnInit {
         }
       });
     };
-
 
 
   toggleForm(form: string) {

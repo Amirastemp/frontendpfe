@@ -22,11 +22,7 @@ export class AuthEmployeeComponent implements OnInit {
 
     }
   ngOnInit(): void {
-      window.sessionStorage.removeItem("user")
-      this.url=this.arouter.snapshot.queryParams['returnUrl']
-      console.log(this.url)
-      // console.log(this.authadmin.LoggedIn());
-    this.errorMessage = '';
+      window.sessionStorage.removeItem("user");
   }
 
 
@@ -38,7 +34,7 @@ export class AuthEmployeeComponent implements OnInit {
         this.data.saveUser(data);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
-        if(data.role=="employee" && data.active==true){
+         if(data.role=="employee" && data.active==true){
           this._router.navigate(['/employee']);
         }
       },

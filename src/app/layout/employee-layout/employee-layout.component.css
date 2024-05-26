@@ -8,7 +8,7 @@
 
 #sidebar {
   width: 264px; /* Adjust as needed */
-  background: coral;
+  background: rgb(241, 76, 181);
   transition: all 0.35s ease-in-out;
   overflow-y: auto; /* Allow sidebar to scroll if content exceeds height */
 }
@@ -63,7 +63,7 @@ a.sidebar-link {
   font-size: 0.875rem;
 }
 .btn-coral {
-  background-color: coral;
+  background-color: rgb(241, 76, 181);
   color: white; /* Pour s'assurer que le texte est visible sur le bouton */
 }
 .sidebar-link[data-bs-toggle="collapse"]::after {
@@ -107,7 +107,29 @@ a.sidebar-link {
 .dropdown-right {
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
   
+  /***************************connexion*********************************/
+ .nav-item.dropdown {
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  display: flex; /* Use flexbox */
+
+}
   
+
+.img-profile {
+  width: 35px; /* Adjust the width of the image */
+  height: 35px; /* Adjust the height of the image */
+ 
+}
+
+.userName {
+  margin-right: 10px; /* Adjust as needed for spacing */
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+}
 

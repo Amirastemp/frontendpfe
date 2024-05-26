@@ -26,4 +26,13 @@ export class JobapplicationComponent implements OnInit {
       console.log(this.jobapp);
     })
   }
+  handleFileInput(event: Event, fileType: string) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      if (fileType === 'cvFile') {
+        this.jobapp.cvFile = file;
+      }
+    }
+  }
 }

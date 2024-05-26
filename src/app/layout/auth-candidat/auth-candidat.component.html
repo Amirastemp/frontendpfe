@@ -161,6 +161,34 @@
         </div>
       </div>
     </div>
+    <div class="u-form-group">
+      <label for="image">Upload image:</label>
+      <br>
+      <input type="file" id="image" name="image" (change)="handleFileInput($event, 'image')" required>
+    </div>
+    <div class="u-form-group">
+      <label for="description">Description</label>
+      <textarea
+        class="form-control"
+        name="description"
+        [(ngModel)]="registerUserData.description"
+        required
+        minlength="10"
+        maxlength="200"
+        #description="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+      ></textarea>
+      <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+        <div *ngIf="description.errors['required']">Description is required</div>
+        <div *ngIf="description.errors['minlength']">
+          Description must be at least 10 characters
+        </div>
+        <div *ngIf="description.errors['maxlength']">
+          Description must be at most 200 characters
+        </div>
+      </div>
+    </div>
+
   <div class="u-form-group">
     <label for="password">Password</label>
     <input

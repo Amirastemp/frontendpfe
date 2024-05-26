@@ -20,14 +20,18 @@ export class CandidatLayoutComponent implements OnInit {
  date='';
  status=""
  title="";
- Date=new Date()
+ Date=new Date();
+ image:any;
  menuOpen=false;
   constructor(private datas:DataService,private authCandidate:AuthcandidatService,private socketService:SocketServiceService,private job:JobserviceService){}
   ngOnInit(): void {
     this.user=this.datas.getUser();
-    console.log(this.user);
-    this.username=this.user.username;
-    this.candidatId=this.user.candidatId;
+    this.candidatId=this.user.id;
+    //display the user to bring the image and the username
+    const user =this.datas.getUserById(this.candidatId).subscribe((data)=>{
+      this.image=data.image;
+      this.username=data.userName;
+    })
     console.log(this.username);
 
     //Obtenir le pourcentage de complétion du profil du candidat depuis le service

@@ -4,7 +4,7 @@
   </div>
   <div class="profile-info">
     <div class="profile-picture">
-      <img src="assets/images/myphoto.jpg" alt="Photo de profil">
+      <img [src]="'http://127.0.0.1:3000/getimage/'+candidat.image" alt="Photo de profil">
     </div>
     <div class="profile-details">
       <h3>{{candidat.firstName}} {{candidat.lastName}}</h3>

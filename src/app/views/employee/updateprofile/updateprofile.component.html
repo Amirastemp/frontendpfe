@@ -1,0 +1,87 @@
+<div class="card-section">
+  <div class="profile-info">
+    <div class="profile-picture">
+      <label for="profile-photo" class="profile-photo-label">
+        <img [src]="'http://127.0.0.1:3000/getimage/' + employee.image" alt="Profile Picture" id="profile-photo-preview">
+        <div class="overlay">
+          <span>Change Photo</span>
+        </div>
+      </label>
+      <input (change)="handleFileInput($event, 'profile-photo')" type="file" id="profile-photo" name="profile-photo" accept="image/*">
+    </div>
+
+    <h3>Personal Information</h3>
+
+    <div class="profile-details">
+      <form class="form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="employee.firstName" required minlength="3" maxlength="20" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }">
+          <div class="invalid-feedback" *ngIf="firstName.errors && f.submitted">
+            <div *ngIf="firstName.errors['required']">First Name is required</div>
+            <div *ngIf="firstName.errors['minlength']">First Name must be at least 3 characters</div>
+            <div *ngIf="firstName.errors['maxlength']">First Name must be at most 20 characters</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" class="form-control" name="lastName" [(ngModel)]="employee.lastName" required minlength="3" maxlength="20" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }">
+          <div class="invalid-feedback" *ngIf="lastName.errors && f.submitted">
+            <div *ngIf="lastName.errors['required']">Last Name is required</div>
+            <div *ngIf="lastName.errors['minlength']">Last Name must be at least 3 characters</div>
+            <div *ngIf="lastName.errors['maxlength']">Last Name must be at most 20 characters</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="employee.userName" required minlength="3" maxlength="20" #userName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userName.errors }">
+          <div class="invalid-feedback" *ngIf="userName.errors && f.submitted">
+            <div *ngIf="userName.errors['required']">Username is required</div>
+            <div *ngIf="userName.errors['minlength']">Username must be at least 3 characters</div>
+            <div *ngIf="userName.errors['maxlength']">Username must be at most 20 characters</div>
+          </div>
+        </div>
+
+     
+
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="text" class="form-control" name="phone" [(ngModel)]="employee.phone" required maxlength="8" #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.errors }">
+          <div class="invalid-feedback" *ngIf="phone.errors && f.submitted">
+            <div *ngIf="phone.errors['required']">Phone is required</div>
+            <div *ngIf="phone.errors['phone']">Phone must be a valid phone number</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" class="form-control" name="address" [(ngModel)]="employee.address" required #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.errors }">
+          <div class="invalid-feedback" *ngIf="address.errors && f.submitted">
+            <div *ngIf="address.errors['required']">Address is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea class="form-control" name="description" [(ngModel)]="employee.description" required #description="ngModel" [ngClass]="{ 'is-invalid': f.submitted && description.errors }"></textarea>
+          <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+            <div *ngIf="description.errors['required']">Description is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="hiring_date">Hiring Date:</label>
+          <input type="date" class="form-control" name="hiring_date" [(ngModel)]="employee.hiring_date" required #hiring_date="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hiring_date.errors }">
+          <div class="invalid-feedback" *ngIf="hiring_date.errors && f.submitted">
+            <div *ngIf="hiring_date.errors['required']">Hiring Date is required</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary">Update Profile</button>
+      </form>
+    </div>
+  </div>
+</div>

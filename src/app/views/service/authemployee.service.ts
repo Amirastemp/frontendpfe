@@ -10,7 +10,7 @@ private reqUrl= "http://localhost:3000/api/conge/request";
 private Url= "http://localhost:3000/api/conge/requests";
 private idUrl= "http://localhost:3000/api/conge/requests";
 private _loginUrl= "http://localhost:3000/api/auth/login";
-  constructor(private http:HttpClient) { }
+constructor(private http:HttpClient) { }
 
 
   login(user: any) {

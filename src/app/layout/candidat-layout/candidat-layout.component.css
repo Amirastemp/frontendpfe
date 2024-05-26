@@ -109,14 +109,14 @@ a.sidebar-link {
   position: absolute;
   right: 60px;
   cursor: pointer;
-  top: 18px;
+  top: 16px;
   display: flex; /* Use flexbox */
   align-items: center; /* Align items vertically */
 }
 
 .img-profile {
-  width: 30px; /* Adjust the width of the image */
-  height: 30px; /* Adjust the height of the image */
+  width: 35px; /* Adjust the width of the image */
+  height: 35px; /* Adjust the height of the image */
   margin-left: 10px; /* Add margin to separate the image from the username */
 }
 

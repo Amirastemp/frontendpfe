@@ -22,9 +22,12 @@ export class AuthadminService {
  onSubmit(user: any) {
   return this.http.post<any>(this._loginUrl, user)
 }
- registerUser(user: any){
-  return this.http.post<any>(this._registerUrl,user)
+ registerUser(formData:FormData){
+  return this.http.post<any>(this._registerUrl,formData)
    }
+   login(user: any) {
+    return this.http.post<any>(this._loginUrl, user)
+  }
 /************************************************************************ */
  Rhs(user: any){
     return this.http.get<any>(this._rhsUrl,user)
@@ -34,12 +37,12 @@ getEmployees(user: any){
   return this.http.get<any>(this._EmployeeUrl,user)
    }
 /**************************************************************/
-registerRH(user: any){
-  return this.http.post<any>(this._RhUrl,user)
+registerRH(formData:FormData){
+  return this.http.post<any>(this._RhUrl,formData)
    }
 /*****************************registeremployee******************************** */
-registerEmployee(user: any){
-  return this.http.post<any>(this._employeesUrl,user)
+registerEmployee(formData:FormData){
+  return this.http.post<any>(this._employeesUrl,formData)
    }
 /************************************************************** */
 public saveUser(user: any): void {

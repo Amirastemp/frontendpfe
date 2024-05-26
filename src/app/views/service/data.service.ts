@@ -6,6 +6,9 @@ const USER_KEY='user'
   providedIn: 'root'
 })
 export class DataService {
+  updateuserById(_id: any, candidat: any) {
+    throw new Error('Method not implemented.');
+  }
   private  _deleteUrl= "http://localhost:3000/api/auth/users";
   private  _usersUrl= "http://localhost:3000/api/auth/users";
  private _userUrl="http://localhost:3000/api/auth/users";
@@ -22,9 +25,11 @@ export class DataService {
   getUsers(){
     return this.http.get<any>(this._usersUrl);
   }
-  updateuser(userId: string, userdata: any) {
+  
+  updateuser(userId: string, userdata: FormData) {
     return this.http.put<any>(`${this._userUrl}/${userId}`, userdata);
   }
+
   public isLoggedIn(): boolean {
     return !!window.sessionStorage.getItem(USER_KEY);
   }

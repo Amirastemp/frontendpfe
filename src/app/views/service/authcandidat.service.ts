@@ -28,8 +28,8 @@ export class AuthcandidatService {
   login(user: any) {
     return this.http.post<any>(this._loginUrl, user)
   }
-  register(user:any){
-    return this.http.post<any>(this._Url, user)
+  register(formData:FormData){
+    return this.http.post<any>(this._Url, formData)
   }
   getProfileCompletion(id:string){
     return this.http.get<any>(`${this._Urlp}/${id}`)

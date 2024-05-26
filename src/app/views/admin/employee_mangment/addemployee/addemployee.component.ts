@@ -22,20 +22,32 @@ export class AddemployeeComponent implements OnInit  {
 
   constructor(private _auth: AuthadminService,private _router:Router,private datas:DataService) { }
 
-
-  onSubmit(): void {
-    const { firstName, lastName, userName, description,email, password, phone, active} = this.registerUserData;
-
-    // Check if the checkbox is checked or unchecked
-    const isActivated = active; // true if checked, false if unchecked
-
-    this._auth.registerEmployee({ firstName, lastName, userName,description, email, password, phone, active: isActivated }).subscribe({
-
+  handleFileInput(event: Event, fileType: string) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const image = input.files[0];
+      if (fileType === 'image') {
+        this.registerUserData.image = image;
+      }
+    }
+  }
+  onSubmit():void{
+    const formData = new FormData();
+    formData.append('email', this.registerUserData.email);
+    formData.append('password', this.registerUserData.password);
+    formData.append('firstName', this.registerUserData.firstName);
+    formData.append('lastName', this.registerUserData.lastName);
+    formData.append('userName', this.registerUserData.userName);
+    formData.append('description', this.registerUserData.description);
+    formData.append('phone', this.registerUserData.phone.toString());
+    formData.append('address', this.registerUserData.address);
+    formData.append('active', this.registerUserData.active);
+    if (this.registerUserData.image) {
+      formData.append('image', this.registerUserData.image);
+    }
+    this._auth.registerEmployee(formData).subscribe({
       next: (data: any) => {
-
-        console.log(active)
         console.log('Response:', data);
-
         this.user=this.datas.getUser();
         this.userRole=this.user.role;
 
