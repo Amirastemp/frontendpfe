@@ -11,7 +11,7 @@
                   <h1 class=" mb-4 ">Bienvenue Administration</h1>
 
                 </div>
-                <form class="user" *ngIf="!isLoggedIn" #f="ngForm" (ngSubmit)="f.form.valid && login()" novalidate>
+                <form class="user" *ngIf="!isLoggedIn" #f="ngForm" (ngSubmit)="f.form.valid &&onSubmit()" novalidate>
                   <div class="form-group">
                     <label class="h4 text-white" for="email">Email:</label>
                     <input type="text"

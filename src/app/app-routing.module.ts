@@ -12,12 +12,18 @@ import { AuthEmployeeComponent } from './layout/auth-employee/auth-employee.comp
 import { AuthCandidatComponent } from './layout/auth-candidat/auth-candidat.component';
 import { CandidatLayoutComponent } from './layout/candidat-layout/candidat-layout.component';
 
+
+
 const routes: Routes = [
+      { path: 'config', loadChildren: () => import('./views/config/config.module').then(m => m.ConfigModule) },
       { path: 'navbar', component: NavbarLayoutComponent },
       { path: 'footer', component: FooterLayoutComponent },
       { path: '', component: UserLayoutComponent, children: [
         { path: '', loadChildren: () => import('./views/user/home/home.module').then(m => m.HomeModule) },
-        {path:"employees",loadChildren:()=>import('./views/user/employees/employees.module').then(m=>m.EmployeesModule)},
+        { path: 'employees', loadChildren: () => import('./views/user/employees/employees.module').then(m => m.EmployeesModule) },
+        { path: 'contact', loadChildren: () => import('./views/user/contact/contact.module').then(m => m.ContactModule) },
+        { path: 'about-us', loadChildren: () => import('./views/user/about-us/about-us.module').then(m => m.AboutUsModule) },
+       
       ]},
       {path:"admin",component:AdminLayoutComponent,children:[
         {path:"dashboard",loadChildren:()=>import('./views/admin/dashboard/dashboard.module').then(m=>m.DashboardModule)},
@@ -29,6 +35,9 @@ const routes: Routes = [
         {path:"addemployee",loadChildren:()=>import('./views/admin/employee_mangment/addemployee/addemployee.module').then(m=>m.AddemployeeModule)},
         {path:"employeedetails/:id",loadChildren:()=>import('./views/admin/employee_mangment/employeedetails/employeedetails.module').then(m=>m.EmployeedetailsModule)},
         {path:"updateemployee/:id",loadChildren:()=>import('./views/admin/employee_mangment/updateemployee/updateemployee.module').then(m=>m.UpdateemployeeModule)},
+     
+        {path:"profile",loadChildren:()=>import('./views/employee/profile/profile.module').then(m=>m.ProfileModule)},
+        {path:"updateprofile",loadChildren:()=>import('./views/employee/updateprofile/updateprofile.module').then(m=>m.UpdateprofileModule)},
       ]},
       {path:"admin/login",component:AuthAdminComponent},
 
@@ -55,6 +64,8 @@ const routes: Routes = [
         {path:"alltraining",loadChildren:()=>import('./views/HR/trainingsystem/alltraining/alltraining.module').then(m=>m.AlltrainingModule)},
         {path:"trainingdetails",loadChildren:()=>import('./views/HR/trainingsystem/trainingdetails/trainingdetails.module').then(m=>m.TrainingdetailsModule)},
 
+        {path:"profile",loadChildren:()=>import('./views/employee/profile/profile.module').then(m=>m.ProfileModule)},
+        {path:"updateprofile",loadChildren:()=>import('./views/employee/updateprofile/updateprofile.module').then(m=>m.UpdateprofileModule)},
       ]},
       {path:"rh/login",component:AuthRhComponent},
 
@@ -63,6 +74,7 @@ const routes: Routes = [
         {path:"requests",loadChildren:()=>import('./views/employee/request/request.module').then(m=>m.RequestModule)},
         {path:"addrequest",loadChildren:()=>import('./views/employee/addrequest/addrequest.module').then(m=>m.AddrequestModule)},
         {path:"updaterequest/:id",loadChildren:()=>import('./views/employee/updaterequest/updaterequest.module').then(m=>m.UpdaterequestModule)},
+        
         {path:"profile",loadChildren:()=>import('./views/employee/profile/profile.module').then(m=>m.ProfileModule)},
         {path:"updateprofile",loadChildren:()=>import('./views/employee/updateprofile/updateprofile.module').then(m=>m.UpdateprofileModule)},
       ]},
@@ -75,6 +87,10 @@ const routes: Routes = [
         {path:"jobapplication",loadChildren:()=>import('./views/candidat/recrutement/jobapplication/jobapplication.module').then(m=>m.JobapplicationModule)},
         {path:"jobposting",loadChildren:()=>import('./views/candidat/recrutement/jobposting/jobposting.module').then(m=>m.JobpostingModule)},
         {path:"jobPostingdetails",loadChildren:()=>import('./views/candidat/recrutement/details-jobposting/details-jobposting.module').then(m=>m.DetailsJobpostingModule)},
+
+        {path:"updateskill",loadChildren:()=>import('./views/candidat/update-skill/update-skill.module').then(m=>m.UpdateSkillModule)},
+        {path:"updateprof",loadChildren:()=>import('./views/candidat/update-prof/update-prof.module').then(m=>m.UpdateProfModule)},
+        {path:"updateacademic",loadChildren:()=>import('./views/candidat/update-academic/update-academic.module').then(m=>m.UpdateAcademicModule)},
 
     ]}, {path:"candidat/connected",component:AuthCandidatComponent},
 

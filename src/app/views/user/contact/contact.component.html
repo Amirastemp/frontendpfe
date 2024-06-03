@@ -1,0 +1,43 @@
+<div class="contact-content">
+  <div class="formbold-main-wrapper">
+    <h2 class="center"> Contact Us </h2>
+    <div class="formbold-form-wrapper">
+      <form #f="ngForm" (ngSubmit)="contact(f)" method="POST">
+        <div class="form-group">
+          <label for="name">FirstName and LastName </label>
+          <input type="text" class="form-control" placeholder="FirstName and LastName" required name="name" #name="ngModel" ngModel>
+        </div>
+        <div class="alert alert-danger" *ngIf="name.errors?.['required'] && name.touched">
+          Entre your firstName And lastName
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" placeholder="Entrer your Email" required name="email" #email="ngModel" ngModel>
+        </div>
+        <div class="alert alert-danger" *ngIf="email.errors?.['required'] && email.touched">
+          Entrer your Email
+        </div>
+        <div class="form-group">
+          <label for="sujet">Topic</label>
+          <input type="text" class="form-control" placeholder=" Enter the Topic" required name="sujet" #sujet="ngModel" ngModel>
+        </div>
+        <div class="alert alert-danger" *ngIf="sujet.errors?.['required'] && sujet.touched">
+          Enter your Topic
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea rows="6" placeholder=" Enter your message" class="formbold-form-input" required name="message" #message="ngModel" ngModel></textarea>
+        </div>
+        <div class="alert alert-danger" *ngIf="message.errors?.['required'] && message.touched">
+          Enter your message
+        </div>
+        <div class="alert alert-success" *ngIf="messageSuccess">
+          {{ messageSuccess }}
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Envoyer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

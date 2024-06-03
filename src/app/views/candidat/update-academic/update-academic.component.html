@@ -1,0 +1,18 @@
+<div class="card-section">
+  <h3>Update Academic Experience</h3>
+  <form class="education-form" (ngSubmit)="onsubmit()">
+      <!-- Fields for updating academic experience -->
+      <label for="degree">Degree:</label>
+      <input type="text" id="degree" name="degree" [(ngModel)]="ExpAcadata.degree" required>
+      <label for="institution">Institution:</label>
+      <input type="text" id="institution" name="institution" [(ngModel)]="ExpAcadata.institution" required>
+      <label for="start-date-edu">Start Date:</label>
+      <input type="datetime" id="start-date-edu" name="start-date-edu" [(ngModel)]="ExpAcadata.startDate" required>
+      <label for="end-date-edu">End Date:</label>
+      <input type="datetime" id="end-date-edu" name="end-date-edu" [(ngModel)]="ExpAcadata.endDate" required>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" [(ngModel)]="ExpAcadata.description" required></textarea>
+      <button class="btn btn-primary" type="submit">Update Academic Experience</button>
+  </form>
+
+</div>

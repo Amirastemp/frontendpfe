@@ -149,7 +149,7 @@ a.sidebar-link {
   padding: 8px;
 }
 /*************connexion***************************/
-.nav-item.dropdown {
+.nav-item.dropdown-right {
   position: absolute;
   right: 120px;
   cursor: pointer;

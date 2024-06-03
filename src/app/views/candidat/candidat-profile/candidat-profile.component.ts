@@ -44,6 +44,16 @@ export class CandidatProfileComponent implements OnInit{
   navigateToUpdateProfile() {
     this.router.navigate(['/candidat/updateprofile'], { queryParams: { id: this.candidatId } });
   }
+  EditSkill(_id:string) {
+    this.router.navigate(['/candidat/updateskill'], { queryParams: { id:_id } });
+  }
+  EditProf(_id:string) {
+    this.router.navigate(['/candidat/updateprof'], { queryParams: { id:_id } });
+  }
+  EditAcad(_id:string) {
+    this.router.navigate(['/candidat/updateacademic'], { queryParams: { id:_id } });
+  }
+  
   getpersontage():void{
     this.authCandidate.getProfileCompletion(this.candidatId).subscribe(completion => {
       this.profileCompletion = completion;
@@ -70,7 +80,7 @@ getcandidatExp(f:string){
 }
 
 DeleteAca(f:string,i:number){
-  this.authCandidate.deletebyId(f).subscribe({
+  this.authCandidate.deletebyIdAca(f).subscribe({
     next: (response:any) => {
 
         console.log(' supprimé avec succès', response);

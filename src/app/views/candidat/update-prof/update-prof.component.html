@@ -1,0 +1,18 @@
+<div class="card-section">
+  <h3>Update Professional Experience</h3>
+  <form class="experience-form" (ngSubmit)="onsubmit()">
+      <!-- Fields for updating professional experience -->
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="ExpProfdata.title" required>
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" [(ngModel)]="ExpProfdata.company" required>
+      <label for="start-date">Start Date:</label>
+      <input type="datetime" id="start-date" name="start-date" [(ngModel)]="ExpProfdata.startDate" required>
+      <label for="end-date">End Date:</label>
+      <input type="datetime" id="end-date" name="end-date" [(ngModel)]="ExpProfdata.endDate">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" [(ngModel)]="ExpProfdata.description" required></textarea>
+      <button class="btn btn-primary" type="submit">Update</button>
+  </form>
+  
+</div>

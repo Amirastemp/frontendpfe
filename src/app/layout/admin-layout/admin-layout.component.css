@@ -5,13 +5,27 @@
   height: 100vh;
 }
 
-
 #sidebar {
   width: 264px; /* Adjust as needed */
-  background: var(--bs-dark);
+  background: linear-gradient(135deg, rgb(173, 114, 3) 0%, rgb(255, 206, 86) 100%);
   transition: all 0.35s ease-in-out;
   overflow-y: auto; /* Allow sidebar to scroll if content exceeds height */
+  animation: gradientAnimation 10s ease infinite;
 }
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(135deg, rgb(152, 99, 2) 0%, rgb(206, 169, 74) 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, rgb(189, 153, 64) 0%, rgb(136, 90, 6) 100%);
+  }
+  100% {
+    background: linear-gradient(135deg, rgb(126, 83, 1) 0%, rgb(255, 206, 86) 100%);
+  }
+}
+
+
 .sidebar-link {
   text-decoration: none; /* Remove underline */
   color: inherit; /* Inherit color from parent */
@@ -101,4 +115,30 @@ a.sidebar-link {
   footer {
       width: 100vw;
   }
+}
+.btn {
+  background:rgb(173, 114, 3) ;
+  border-color:rgb(173, 114, 3)  ;
+}
+/***************************connexion*********************************/
+.nav-item.dropdown-right {
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  display: flex; /* Use flexbox */
+
+}
+  
+
+.img-profile {
+  width: 35px; /* Adjust the width of the image */
+  height: 35px; /* Adjust the height of the image */
+ 
+}
+
+.userName {
+  margin-right: 10px; /* Adjust as needed for spacing */
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
 }

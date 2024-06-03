@@ -169,7 +169,13 @@
 
           </div>
         </div>
-
+        <div class="form-group">
+          <label for="hiring_date">Hiring Date:</label>
+          <input type="date" class="form-control" name="hiring_date" [(ngModel)]="registerUserData.hiring_date" required #hiring_date="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hiring_date.errors }">
+          <div class="invalid-feedback" *ngIf="hiring_date.errors && f.submitted">
+            <div *ngIf="hiring_date.errors['required']">Hiring Date is required</div>
+          </div>
+        </div>
         <div class="form-group">
           <label for="activate">Activate</label>
           <div class="form-check">

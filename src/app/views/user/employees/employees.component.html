@@ -1,15 +1,55 @@
-<div class="row mt-5">
-  <div class="col-md-4 mb-3" *ngFor="let user of users">
-    <div class="card text-center">
-      <div class="card-body">
-        <h5 class="card-title">{{user.firstName}}</h5>
-        <h5 class="card-title">{{user.lastName}}</h5>
-        <p class="card-text">{{user.role}}</p>
-        <a routerLink="/user"  class="btn btn-primary">more details </a>
-      </div>
-      <div class="card-footer text-muted">
-       {{user.phone}}
+<div class="employees-content">
+  <h1 class="title center">OUR Leaders</h1>
+
+  <!-- Team -->
+  <section id="team" class="pb-5">
+    <div class="container">
+      <div class="row">
+        <!-- Team member -->
+        <div *ngFor="let user of users" class="col-xs-12 col-sm-6 col-md-4">
+          <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+            <div class="mainflip">
+              <div class="frontside">
+                <div class="card">
+                  <div class="card-body text-center">
+               
+                    <p><img class="img-fluid" [src]="'http://127.0.0.1:3000/getimage/'+user.image"  alt="card image"></p>
+                    <h4 class="card-title">{{user.lastName}} {{user.firstName}}</h4>
+                    <h3 class="card-title">{{user.post}}</h3>
+                    <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="backside">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h4 class="card-title">{{user.lastName}} {{user.firstName}}</h4>
+                    <p class="card-text">{{user.description}}</p>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                          <i class="fa fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                          <i class="fa fa-skype"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Team member -->
       </div>
     </div>
-  </div>
+  </section>
 </div>

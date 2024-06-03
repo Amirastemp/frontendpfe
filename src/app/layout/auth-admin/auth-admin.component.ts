@@ -41,7 +41,7 @@ export class AuthAdminComponent implements OnInit {
         this.authadmin.saveUser(data);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
-        if(data.role=="director" && data.active==true){
+        if(data.role=="Admin" && data.active==true){
           this._router.navigate(['/admin']);
         }
       },

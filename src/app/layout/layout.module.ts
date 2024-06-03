@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterLayoutComponent } from './footer-layout/footer-layout.component';
 import { NavbarLayoutComponent } from './navbar-layout/navbar-layout.component';
@@ -39,6 +39,7 @@ import { AuthCandidatComponent } from './auth-candidat/auth-candidat.component';
     CommonModule,
     RouterModule.forChild([]),
     FormsModule
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class LayoutModule { }

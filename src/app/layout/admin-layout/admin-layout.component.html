@@ -4,10 +4,11 @@
       <div class="h-100">
           <div class="sidebar-logo">
               <a>
-                <div class="sidebar-brand-icon rotate-n-15"style="text-align:margin-left;">
-                <i class="fas fa-laugh-wink" ></i></div>
-                <div class="sidebar-brand-text mx-3" style="text-align: center;">
-                  Dashboar Director
+                <div style="display: flex;">
+                  <img src="/assets/images/comany'slogo.jpeg" style="height: 50px;width: 50px;" alt="logo" class="mb-30">
+                  <h2 style="font-family: 'MV Boli'; color: rgb(248, 248, 248); padding-top: 5px;">
+                    <b>HRSierra</b>
+                  </h2>
                 </div>
                </a>
           </div>
@@ -96,28 +97,14 @@
       <!-- Search input field -->
       <form class="d-flex mx-3">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-dark" type="submit">Search</button>
+          <button class="btn btn-primary" type="submit">Search</button>
       </form>
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-            <img class="img-profile rounded-circle"
-                src="assets/admin/img/undraw_profile.svg">
-        </a>
+    
         <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-            aria-labelledby="userDropdown">
-            <button class="dropdown-item" (click)="logout()">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
-            </button>
+        <div class="nav-item dropdown-right no-arrow ml-5 d-flex align-items-center"(click)="navigateToProfile()">
+          <p class="userName mb-0 mr-2">{{ username }}</p>
+          <img class="img-profile rounded-circle small-profile-photo" [src]="'http://127.0.0.1:3000/getimage/'+image" alt="User Photo">
         </div>
-    </li>
-
-
-
-
           </nav>
 
       <div class="container ">

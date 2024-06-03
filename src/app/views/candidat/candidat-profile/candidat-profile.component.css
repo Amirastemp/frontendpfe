@@ -121,3 +121,16 @@
 .cv-file a:hover {
   background-color: #0056b3;
 }
+.fa-edit{
+  cursor: pointer;
+  right: 5px;
+}
+.fa-trash-alt{
+  cursor: pointer;
+  right: 0;
+}
+
+
+.icon-cell {
+  text-align: right; /* Aligns content to the right */
+}

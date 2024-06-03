@@ -23,7 +23,10 @@ export class RHLayoutComponent implements OnInit {
   timeElapsed: number = 0;
   timer:any;
   username='';
+  usernameR='';
   user:any={};
+  userId='';
+  image:any;
   @Output() userSelected = new EventEmitter<any>();
 
   constructor(private datas : DataService,private socketService: SocketServiceService,private router: Router, private route: ActivatedRoute)
@@ -47,9 +50,12 @@ export class RHLayoutComponent implements OnInit {
     });
 
   this.user=this.datas.getUser();
-  console.log(this.user);
-  this.username=this.user.username;
-  console.log(this.username);
+  this.userId=this.user.id;
+  const user =this.datas.getUserById(this.userId).subscribe((data)=>{
+    this.image=data.image;
+    this.usernameR=data.userName;
+  })
+
   this.getTimeElapsed(this.notif.date);
 
 }
@@ -107,6 +113,9 @@ deleteNotification(notification: any) {
 
 
 
+navigateToProfile() {
+  this.router.navigate(['/rh/profile'], { queryParams: { id: this.userId } });
+}
 
 
 

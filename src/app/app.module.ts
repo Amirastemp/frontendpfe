@@ -1,9 +1,9 @@
-import { NgModule  } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './views/user/home/home.module';
 
@@ -22,6 +22,12 @@ import { AddjobpostComponent } from './views/HR/jobpostsystem/addjobpost/addjobp
 import { UpdatejobpostComponent } from './views/HR/jobpostsystem/updatejobpost/updatejobpost.component';
 import { AlljobpostComponent } from './views/HR/jobpostsystem/alljobpost/alljobpost.component';
 import { DetailsJobpostingComponent } from './views/candidat/recrutement/details-jobposting/details-jobposting.component';
+import { UpdateSkillComponent } from './views/candidat/update-skill/update-skill.component';
+import { UpdateAcademicComponent } from './views/candidat/update-academic/update-academic.component';
+import { UpdateProfComponent } from './views/candidat/update-prof/update-prof.component';
+import { ConfigComponent } from './views/config/config.component';
+import { ConfigModule } from './views/config/config.module';
+
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -35,6 +41,10 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     UpdatejobpostComponent,
     AlljobpostComponent,
     DetailsJobpostingComponent,
+    UpdateSkillComponent,
+    UpdateAcademicComponent,
+    UpdateProfComponent,
+   ConfigComponent
 
 
 
@@ -48,12 +58,14 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     LayoutModule,
     FormsModule,
     HomeModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    ReactiveFormsModule,
+    
 
 
   ],
   providers: [AuthadminService,AuthemployeeService,AuthrhService,CongéService,DataService,SocketServiceService],
   bootstrap: [AppComponent],
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class AppModule { }

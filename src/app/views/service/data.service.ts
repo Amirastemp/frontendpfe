@@ -11,7 +11,11 @@ export class DataService {
   }
   private  _deleteUrl= "http://localhost:3000/api/auth/users";
   private  _usersUrl= "http://localhost:3000/api/auth/users";
+  private  _passUrl= "http://localhost:3000/api/auth/changepassword";
+  private  codeUrl= "http://localhost:3000/api/auth/send-verification-code";
+  private  crstUrl= "http://localhost:3000/api/auth/verify-code-and-reset-password";
  private _userUrl="http://localhost:3000/api/auth/users";
+ private _msgUrl="http://localhost:3000/api/contact/addmessage";
  private _searchUrl="http://localhost:3000/api/search/searchUser";
   constructor(private http:HttpClient) { }
 
@@ -25,7 +29,7 @@ export class DataService {
   getUsers(){
     return this.http.get<any>(this._usersUrl);
   }
-  
+
   updateuser(userId: string, userdata: FormData) {
     return this.http.put<any>(`${this._userUrl}/${userId}`, userdata);
   }
@@ -55,5 +59,17 @@ export class DataService {
     return this.http.get<any>(`${this._searchUrl}?search=${f}`);
     console.log('done');
   }
+  sendContact(data:any){
+    return this.http.post<any>(`${this._msgUrl}`,data);
+  }
+  changepassword(data:any){
+    return this.http.put<any>(`${this._passUrl}`,data);
+  }
+  sendVerificationCode(email: string): Observable<any> {
+    return this.http.post(`${this.codeUrl}`, { email });
+  }
 
+  verifyCodeAndResetPassword(data: any): Observable<any> {
+    return this.http.post(`${this.crstUrl}`, data);
+  }
 }

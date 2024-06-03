@@ -52,10 +52,10 @@ export class UpdateProfileComponent implements OnInit {
     // Add a new empty academic experience object to the array
     this.academicExperiences.push({ degree: '', institution: '', startDate: '', endDate: '', description: '' });
   }
-  addSkill(): void {
-    // Add a new empty skill object to the array
-    this.skills.push({ name: '', proficiency: 'Beginner' });
-  }
+  // addSkill(): void {
+  //   // Add a new empty skill object to the array
+  //   this.skills.push({ name: '', proficiency: 'Beginner' });
+  // }
     addExperience(): void {
       // Add a new empty experience object to the array
       this.professionalExperiences.push({ title: '', company: '', startDate: '', endDate: '' ,description:''});

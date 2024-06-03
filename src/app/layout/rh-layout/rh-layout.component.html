@@ -4,11 +4,11 @@
       <div class="h-100">
           <div class="sidebar-logo">
               <a>
-                <div class="sidebar-brand-icon rotate-n-15"style="text-align:margin-left;">
-                  <img src="../../../assets/images/1.png" style="height:100px;width: 100px;" alt="logo" class="mb-30">
-                <div class="sidebar-brand-text mx-3" style="text-align: center;">
-                  Dashboar HR
-                </div>
+                <div style="display: flex;">
+                  <img src="/assets/images/comany'slogo.jpeg" style="height: 50px;width: 50px;" alt="logo" class="mb-30">
+                  <h2 style="font-family: 'MV Boli'; color: rgb(248, 248, 248); padding-top: 5px;">
+                    <b>HRSierra</b>
+                  </h2>
                 </div>
                </a>
           </div>
@@ -209,11 +209,9 @@
 </div>
 
 <!--****************************profile*************************************** -->
-<div class="nav-item dropdown no-arrow ml-5">
-
-  <p class="userName" >{{username}}</p>
-    <img class="img-profile rounded-circle small-profile-photo" src="assets/images/myphoto.jpg" alt="User Photo">
-
+<div class="nav-item dropdown-right no-arrow ml-5 d-flex align-items-center"(click)="navigateToProfile()">
+  <p class="userName mb-0 mr-2">{{ usernameR }}</p>
+  <img class="img-profile rounded-circle small-profile-photo" [src]="'http://127.0.0.1:3000/getimage/'+image" alt="User Photo">
 </div>
   <!--***********************settings*****************************-->
 <div class="rad-dropdown">

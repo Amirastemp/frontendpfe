@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthadminService } from 'src/app/views/service/authadmin.service';
 import { DataService } from 'src/app/views/service/data.service';
 
@@ -8,11 +9,24 @@ import { DataService } from 'src/app/views/service/data.service';
   styleUrls: ['./admin-layout.component.css']
 })
 export class AdminLayoutComponent implements OnInit {
-
-  constructor(private _auth:AuthadminService, private data:DataService) { }
+user:any={};
+userId='';
+image:any;
+username='';
+  constructor(private _auth:AuthadminService, private datas:DataService,private router :Router) { }
   isLoggedIn = false;
   ngOnInit(): void {
-    this.isLoggedIn = this.data.isLoggedIn();
+    this.isLoggedIn = this.datas.isLoggedIn();
+    this.user=this.datas.getUser();
+    this.userId=this.user.id;
+    //display the user to bring the image and the username
+    const user =this.datas.getUserById(this.userId).subscribe((data)=>{
+      this.image=data.image;
+      this.username=data.userName;
+    })
+  }
+  navigateToProfile() {
+    this.router.navigate(['/admin/profile'], { queryParams: { id: this.userId } });
   }
   isHRManagementOpen: boolean = false;
 
@@ -66,7 +80,7 @@ logout(): void {
   this._auth.logout().subscribe({
     next: (res: any) => {
       // console.log(res);
-      this.data.clean();
+      this.datas.clean();
       window.location.reload();
       // this._router.navigate(['/login']);
     },

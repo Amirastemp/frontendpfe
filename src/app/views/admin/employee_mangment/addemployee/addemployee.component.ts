@@ -40,6 +40,7 @@ export class AddemployeeComponent implements OnInit  {
     formData.append('userName', this.registerUserData.userName);
     formData.append('description', this.registerUserData.description);
     formData.append('phone', this.registerUserData.phone.toString());
+    formData.append('hiring_date', this.registerUserData.hiring_date.toString());
     formData.append('address', this.registerUserData.address);
     formData.append('active', this.registerUserData.active);
     if (this.registerUserData.image) {
