@@ -27,6 +27,7 @@ export class RHLayoutComponent implements OnInit {
   user:any={};
   userId='';
   image:any;
+  dropdownOpen =false
   @Output() userSelected = new EventEmitter<any>();
 
   constructor(private datas : DataService,private socketService: SocketServiceService,private router: Router, private route: ActivatedRoute)
@@ -59,7 +60,24 @@ export class RHLayoutComponent implements OnInit {
   this.getTimeElapsed(this.notif.date);
 
 }
+//*********************setting*************************************** */
+toggleDropdown() {
+  this.dropdownOpen = !this.dropdownOpen;
+}
+logout(): void {
+  this.datas.logout().subscribe({
+    next: (res: any) => {
+      this.datas.clean();
 
+      this.router.navigate(['/']);
+      console.log(res);
+    },
+    error: err => {
+      console.log(err);
+    }
+  });}
+
+//*********************************************************** */
 toggleMenu() {
 
   this.menuOpen = !this.menuOpen;

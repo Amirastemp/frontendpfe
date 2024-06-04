@@ -1,65 +1,63 @@
 <div class="container">
   <!-- Outer Row -->
   <div class="row justify-content-center">
-
-      <div class="card  border shadow my-5">
-        <div class="card-body pe-2justify-content-center">
-
-            <div class="col">
-              <div class="p-5">
-                <div class="text-center">
-                  <h1 class=" mb-4 ">Bienvenue Administration</h1>
-
-                </div>
-                <form class="user" *ngIf="!isLoggedIn" #f="ngForm" (ngSubmit)="f.form.valid &&onSubmit()" novalidate>
-                  <div class="form-group">
-                    <label class="h4 text-white" for="email">Email:</label>
-                    <input type="text"
-                    class="form-control  form-control-user"
-                    placeholder="Enter Email Address..."
-
-                    name="email"
-                    [(ngModel)]="loginUserData.email"
-                    required #email="ngModel">
-                    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                      Email is required!
-                    </div>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="h5 text-white" for="password">Password: </label>
-                    <input type="password"
-                     name="password"
-                     aria-describedby="passwordHelp"
-                     class="form-control form-control-user"
-                     [(ngModel)]="loginUserData.password"
-                     required #password="ngModel"
-                     id="exampleInputPassword"
-                     placeholder="Enter your Password..."
-                    >
-                    <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                      <div *ngIf="password.errors">Password is required</div>
-                      <div *ngIf="password.errors">
-                        Password must be at least 6 characters
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-                  <br>
-                  <div class="form-group">
-                    <button type="submit" class="btn text-gray-900  float-right form-control">Login</button>
-                  </div>
-                  <div class="form-group">
-                    <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-                      Login failed: {{ errorMessage }}
-                    </div>
-                  </div>
-                </form>
-              </div>
+    <div class="card border shadow my-5">
+      <div class="card-body pe-2 justify-content-center">
+        <div class="col">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="mb-4">Bienvenue Administration</h1>
             </div>
-
+            <form class="user" *ngIf="!isLoggedIn" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+              <div class="form-group">
+                <label class="h4 text-white" for="email">Email:</label>
+                <input type="text"
+                  class="form-control form-control-user"
+                  placeholder="Enter Email Address..."
+                  name="email"
+                  [(ngModel)]="loginUserData.email"
+                  required #email="ngModel">
+                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                  Email is required!
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <label class="h5 text-white" for="password">Password: </label>
+                <input type="password"
+                  name="password"
+                  aria-describedby="passwordHelp"
+                  class="form-control form-control-user"
+                  [(ngModel)]="loginUserData.password"
+                  required #password="ngModel"
+                  id="exampleInputPassword"
+                  placeholder="Enter your Password...">
+                <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                  <div *ngIf="password.errors">Password is required</div>
+                  <div *ngIf="password.errors">
+                    Password must be at least 6 characters
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="form-group">
+                <button type="submit" class="btn text-gray-900 float-right form-control">Login</button>
+              </div>
+              <div class="form-group">
+                <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                  Login failed: {{ errorMessage }}
+                </div>
+              </div>
+            </form>
+            <div class="text-center">
+              <a [routerLink]="['/config']" class="small">Forgot password?</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
 

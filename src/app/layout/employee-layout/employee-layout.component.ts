@@ -12,6 +12,7 @@ export class EmployeeLayoutComponent implements OnInit{
    employeeId='';
    image:any;
    username='';
+   dropdownOpen=false
   constructor(private datas:DataService,private router:Router){}
   ngOnInit(): void {
     this.user=this.datas.getUser();
@@ -25,4 +26,23 @@ export class EmployeeLayoutComponent implements OnInit{
   navigateToProfile() {
     this.router.navigate(['/employee/profile'], { queryParams: { id: this.employeeId } });
   }
+
+  //*********************setting*************************************** */
+toggleDropdown() {
+  this.dropdownOpen = !this.dropdownOpen;
+}
+logout(): void {
+  this.datas.logout().subscribe({
+    next: (res: any) => {
+      this.datas.clean();
+
+      this.router.navigate(['/']);
+      console.log(res);
+    },
+    error: err => {
+      console.log(err);
+    }
+  });}
+
+//*********************************************************** */
 }

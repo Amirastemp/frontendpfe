@@ -5,6 +5,7 @@ import { AuthcandidatService } from 'src/app/views/service/authcandidat.service'
 import { SocketServiceService } from 'src/app/views/service/socket-service.service';
 import { JobserviceService } from 'src/app/views/service/jobservice.service';
 import { Notification } from './notification';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-candidat-layout',
   templateUrl: './candidat-layout.component.html',
@@ -23,7 +24,8 @@ export class CandidatLayoutComponent implements OnInit {
  Date=new Date();
  image:any;
  menuOpen=false;
-  constructor(private datas:DataService,private authCandidate:AuthcandidatService,private socketService:SocketServiceService,private job:JobserviceService){}
+ dropdownOpen=false;
+  constructor(private datas:DataService,private router :Router, private authCandidate:AuthcandidatService,private socketService:SocketServiceService,private job:JobserviceService){}
   ngOnInit(): void {
     this.user=this.datas.getUser();
     this.candidatId=this.user.id;
@@ -58,6 +60,24 @@ export class CandidatLayoutComponent implements OnInit {
 
         })
   }
+  //*********************setting*************************************** */
+toggleDropdown() {
+  this.dropdownOpen = !this.dropdownOpen;
+}
+logout(): void {
+  this.datas.logout().subscribe({
+    next: (res: any) => {
+      this.datas.clean();
+
+      this.router.navigate(['/']);
+      console.log(res);
+    },
+    error: err => {
+      console.log(err);
+    }
+  });}
+
+//*********************************************************** */
   toggleMenu() {
 
     this.menuOpen = !this.menuOpen;

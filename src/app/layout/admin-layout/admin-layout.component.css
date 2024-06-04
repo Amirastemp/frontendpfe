@@ -108,9 +108,9 @@ a.sidebar-link {
   .js-sidebar {
       margin-left: -264px;
   }
- 
-  
- 
+
+
+
   .navbar,
   footer {
       width: 100vw;
@@ -123,17 +123,17 @@ a.sidebar-link {
 /***************************connexion*********************************/
 .nav-item.dropdown-right {
   position: absolute;
-  right: 0px;
+  right: 60px;
   cursor: pointer;
   display: flex; /* Use flexbox */
 
 }
-  
+
 
 .img-profile {
   width: 35px; /* Adjust the width of the image */
   height: 35px; /* Adjust the height of the image */
- 
+
 }
 
 .userName {
@@ -142,3 +142,53 @@ a.sidebar-link {
   display: flex;
   align-items: center;
 }
+
+/*********************setting*************************************/
+.rad-dropdown {
+  position: absolute;
+  top: 18px; /* Adjust top position as needed */
+  right: 0; /* Position to the right */
+  cursor: pointer;
+}
+
+.rad-dropdown {
+  display: inline-block;
+}
+
+.rad-menu-item {
+  cursor: pointer;
+  padding: 10px;
+  color: #333;
+}
+
+.rad-dropmenu-item {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rad-dropmenu-item li {
+  padding: 12px 16px;
+}
+
+.rad-dropmenu-item li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.rad-dropmenu-item li a:hover {
+  background-color: #f1f1f1;
+}
+
+.rad-dropmenu-item.show {
+  display: block;
+}
+

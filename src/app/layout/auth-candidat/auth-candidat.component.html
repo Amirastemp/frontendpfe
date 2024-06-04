@@ -63,9 +63,10 @@
       Signup failed!<br />{{ errorMessage }}
     </div>
     <div class="u-form-group">
-      <a href="#" class="forgot-password">Forgot password?</a>
+      <a [routerLink]="['/config']" class="small">Forgot password?</a>
     </div>
   </form>
+
   <!-- /***********************************************************************/ -->
 
   <form class="email-signup"  *ngIf="!showLoginForm"

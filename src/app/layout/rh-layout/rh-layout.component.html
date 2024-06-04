@@ -214,16 +214,16 @@
   <img class="img-profile rounded-circle small-profile-photo" [src]="'http://127.0.0.1:3000/getimage/'+image" alt="User Photo">
 </div>
   <!--***********************settings*****************************-->
-<div class="rad-dropdown">
-  <a class="rad-menu-item">
-    <!-- Replace the icon with three dots -->
-    <i class="fas fa-ellipsis-v fa-lg"></i>
-  </a>
-  <ul class="rad-dropmenu-item rad-settings">
-    <!-- Your dropdown menu items go here -->
-  </ul>
-</div>
+  <div class="rad-dropdown">
+    <a class="rad-menu-item" (click)="toggleDropdown()">
+      <i class="fas fa-ellipsis-v fa-lg"></i>
+    </a>
+    <ul class="rad-dropmenu-item rad-settings" [class.show]="dropdownOpen">
+      <li><a href="#" (click)="logout()">Déconnexion</a></li>
+    </ul>
+  </div>
 
+<!--***********************************************************-->
 </nav>
      <div class="container ">
           <router-outlet></router-outlet>

@@ -17,6 +17,7 @@ export class DataService {
  private _userUrl="http://localhost:3000/api/auth/users";
  private _msgUrl="http://localhost:3000/api/contact/addmessage";
  private _searchUrl="http://localhost:3000/api/search/searchUser";
+ private _logoutUrl="http://localHost:3000/api/auth/logout"
   constructor(private http:HttpClient) { }
 
   deleteuser(email: string):Observable<any> {
@@ -33,7 +34,9 @@ export class DataService {
   updateuser(userId: string, userdata: FormData) {
     return this.http.put<any>(`${this._userUrl}/${userId}`, userdata);
   }
-
+  logout(): Observable<any> {
+    return this.http.post<any>(this._logoutUrl,{});
+  }
   public isLoggedIn(): boolean {
     return !!window.sessionStorage.getItem(USER_KEY);
   }
@@ -41,7 +44,7 @@ export class DataService {
     window.sessionStorage.clear();
     window.localStorage.clear();
   }
-  
+
   public getUser(){
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {

@@ -13,6 +13,7 @@ user:any={};
 userId='';
 image:any;
 username='';
+dropdownOpen=false;
   constructor(private _auth:AuthadminService, private datas:DataService,private router :Router) { }
   isLoggedIn = false;
   ngOnInit(): void {
@@ -76,18 +77,22 @@ handleItemClick(item: any) {
     // Handle item click logic here
     console.log('Item clicked:', item.label);
 }
+//*********************setting*************************************** */
+toggleDropdown() {
+  this.dropdownOpen = !this.dropdownOpen;
+}
 logout(): void {
-  this._auth.logout().subscribe({
+  this.datas.logout().subscribe({
     next: (res: any) => {
-      // console.log(res);
       this.datas.clean();
-      window.location.reload();
-      // this._router.navigate(['/login']);
+
+      this.router.navigate(['/']);
+      console.log(res);
     },
     error: err => {
       console.log(err);
     }
-  });
-  this.isLoggedIn=false;
-}
+  });}
+
+//*********************************************************** */
 }

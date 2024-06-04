@@ -58,14 +58,24 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-coral" type="submit">Search</button>
       </form>
-     
+
         <!-- **********************Dropdown - User Information********************* -->
         <div class="nav-item dropdown-right no-arrow ml-5 d-flex align-items-center"(click)="navigateToProfile()">
           <p class="userName mb-0 mr-2">{{ username }}</p>
           <img class="img-profile rounded-circle small-profile-photo" [src]="'http://127.0.0.1:3000/getimage/'+image" alt="User Photo">
         </div>
-        
-  
+
+ <!--***********************settings*****************************-->
+ <div class="rad-dropdown">
+  <a class="rad-menu-item" (click)="toggleDropdown()">
+    <i class="fas fa-ellipsis-v fa-lg"></i>
+  </a>
+  <ul class="rad-dropmenu-item rad-settings" [class.show]="dropdownOpen">
+    <li><a href="#" (click)="logout()">Déconnexion</a></li>
+  </ul>
+</div>
+
+<!--***********************************************************-->
 
           </nav>
 
